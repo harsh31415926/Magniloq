@@ -1,0 +1,4495 @@
+{
+  "categories": [
+    {
+      "id": "ai",
+      "name": "Artificial Intelligence",
+      "color": "blue",
+      "icon": "cpu"
+    },
+    {
+      "id": "ml",
+      "name": "Machine Learning",
+      "color": "blue",
+      "icon": "brain"
+    },
+    {
+      "id": "datascience",
+      "name": "Data Science",
+      "color": "blue",
+      "icon": "chart"
+    },
+    {
+      "id": "finance",
+      "name": "Finance",
+      "color": "gold",
+      "icon": "landmark"
+    },
+    {
+      "id": "investing",
+      "name": "Investing",
+      "color": "gold",
+      "icon": "trending-up"
+    },
+    {
+      "id": "economics",
+      "name": "Economics",
+      "color": "gold",
+      "icon": "globe"
+    },
+    {
+      "id": "entrepreneurship",
+      "name": "Entrepreneurship",
+      "color": "emerald",
+      "icon": "rocket"
+    },
+    {
+      "id": "strategy",
+      "name": "Business Strategy",
+      "color": "emerald",
+      "icon": "chess"
+    },
+    {
+      "id": "leadership",
+      "name": "Leadership",
+      "color": "emerald",
+      "icon": "compass"
+    },
+    {
+      "id": "negotiation",
+      "name": "Negotiation",
+      "color": "emerald",
+      "icon": "handshake"
+    },
+    {
+      "id": "decisionmaking",
+      "name": "Decision Making",
+      "color": "purple",
+      "icon": "split"
+    },
+    {
+      "id": "philosophy",
+      "name": "Philosophy",
+      "color": "purple",
+      "icon": "feather"
+    },
+    {
+      "id": "psychology",
+      "name": "Human Behaviour",
+      "color": "purple",
+      "icon": "mind"
+    },
+    {
+      "id": "mathematics",
+      "name": "Mathematics",
+      "color": "navy",
+      "icon": "sigma"
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "color": "navy",
+      "icon": "chip"
+    },
+    {
+      "id": "blockchain",
+      "name": "Blockchain",
+      "color": "navy",
+      "icon": "link"
+    },
+    {
+      "id": "cybersecurity",
+      "name": "Cybersecurity",
+      "color": "navy",
+      "icon": "shield"
+    },
+    {
+      "id": "space",
+      "name": "Space",
+      "color": "navy",
+      "icon": "orbit"
+    },
+    {
+      "id": "climate",
+      "name": "Climate Change",
+      "color": "emerald",
+      "icon": "leaf"
+    },
+    {
+      "id": "communication",
+      "name": "Communication",
+      "color": "purple",
+      "icon": "mic"
+    }
+  ],
+  "topics": [
+    {
+      "title": "Transformer Architecture",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 3,
+      "intro": "The neural network design behind almost every modern language model.",
+      "concepts": [
+        "Self-attention vs recurrence",
+        "Positional encoding",
+        "Encoder-decoder vs decoder-only",
+        "Parallelisation over sequences"
+      ],
+      "discussionPoints": [
+        "Why did transformers replace RNNs so fast?",
+        "Is bigger context always better?",
+        "What breaks at very long sequences?"
+      ],
+      "questions": [
+        "Would a non-attention architecture ever make a comeback, and why?",
+        "Is scaling transformers alone enough to reach general intelligence?"
+      ],
+      "applications": [
+        "Machine translation",
+        "Code generation",
+        "Protein folding (AlphaFold)"
+      ],
+      "vocabulary": [
+        {
+          "word": "parallelisable",
+          "definition": "can be split and run at once"
+        },
+        {
+          "word": "quadratic cost",
+          "definition": "cost that grows very fast with size"
+        }
+      ],
+      "keywords": [
+        "attention",
+        "tokens",
+        "context window",
+        "self-attention",
+        "positional encoding"
+      ],
+      "id": "ai-transformer-architecture",
+      "categoryId": "ai"
+    },
+    {
+      "title": "Attention Mechanism",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "The technique that lets a model decide which words matter most to each other.",
+      "concepts": [
+        "Query, key, value vectors",
+        "Softmax weighting",
+        "Multi-head attention",
+        "Interpretability of attention maps"
+      ],
+      "discussionPoints": [
+        "Does attention equal explanation?",
+        "Why multiple heads instead of one?",
+        "How does attention scale with sequence length?"
+      ],
+      "questions": [
+        "Can attention weights be trusted as a model's 'reasoning'?",
+        "Would a human benefit from thinking in 'attention weights'?"
+      ],
+      "applications": [
+        "Search ranking",
+        "Summarisation",
+        "Speech recognition"
+      ],
+      "vocabulary": [
+        {
+          "word": "weighting",
+          "definition": "giving more importance to"
+        }
+      ],
+      "keywords": [
+        "query",
+        "key",
+        "value",
+        "softmax",
+        "multi-head"
+      ],
+      "id": "ai-attention-mechanism",
+      "categoryId": "ai"
+    },
+    {
+      "title": "Retrieval-Augmented Generation (RAG)",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "Combining a language model with an external knowledge source at answer time.",
+      "concepts": [
+        "Vector search",
+        "Chunking documents",
+        "Grounding vs hallucination",
+        "Freshness of knowledge"
+      ],
+      "discussionPoints": [
+        "Why not just fine-tune instead of retrieving?",
+        "What happens if retrieval returns the wrong chunk?",
+        "How do you evaluate a RAG system?"
+      ],
+      "questions": [
+        "Is RAG a permanent fix for hallucination or a patch?",
+        "Should every AI product use RAG by default?"
+      ],
+      "applications": [
+        "Customer support bots",
+        "Legal research tools",
+        "Internal company search"
+      ],
+      "vocabulary": [
+        {
+          "word": "grounding",
+          "definition": "basing an answer on real evidence"
+        }
+      ],
+      "keywords": [
+        "retrieval",
+        "embeddings",
+        "vector database",
+        "chunking",
+        "hallucination"
+      ],
+      "id": "ai-retrieval-augmented-generation-rag",
+      "categoryId": "ai"
+    },
+    {
+      "title": "AI Alignment",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 3,
+      "intro": "The problem of making AI systems pursue the goals we actually intend.",
+      "concepts": [
+        "Reward hacking",
+        "Value specification",
+        "Interpretability",
+        "Scalable oversight"
+      ],
+      "discussionPoints": [
+        "Why is specifying 'good behaviour' so hard?",
+        "Is alignment a technical or a social problem?",
+        "What does 'aligned' even mean across cultures?"
+      ],
+      "questions": [
+        "Can a system ever be proven aligned, or only tested?",
+        "Who should decide what values a powerful AI optimises for?"
+      ],
+      "applications": [
+        "RLHF-tuned chatbots",
+        "Autonomous trading agents",
+        "Self-driving decision systems"
+      ],
+      "vocabulary": [
+        {
+          "word": "reward hacking",
+          "definition": "gaming the score instead of the goal"
+        }
+      ],
+      "keywords": [
+        "alignment",
+        "reward function",
+        "oversight",
+        "specification gaming"
+      ],
+      "id": "ai-ai-alignment",
+      "categoryId": "ai"
+    },
+    {
+      "title": "Agentic AI",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "Systems that plan, use tools, and take multi-step actions toward a goal.",
+      "concepts": [
+        "Planning loops",
+        "Tool use",
+        "Memory across steps",
+        "Failure recovery"
+      ],
+      "discussionPoints": [
+        "What stops an agent from looping forever?",
+        "How much autonomy is safe to grant?",
+        "Should agents ask for permission before acting?"
+      ],
+      "questions": [
+        "Will most software become agentic within a decade?",
+        "What's the right amount of human-in-the-loop for agents?"
+      ],
+      "applications": [
+        "Coding assistants",
+        "Research agents",
+        "Autonomous customer service"
+      ],
+      "vocabulary": [
+        {
+          "word": "autonomy",
+          "definition": "ability to act without supervision"
+        }
+      ],
+      "keywords": [
+        "agent",
+        "tool use",
+        "planning",
+        "memory",
+        "autonomy"
+      ],
+      "id": "ai-agentic-ai",
+      "categoryId": "ai"
+    },
+    {
+      "title": "LangGraph & Orchestration",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "Frameworks for wiring multiple AI calls and tools into a controllable workflow.",
+      "concepts": [
+        "State machines for agents",
+        "Branching and retries",
+        "Human-in-the-loop checkpoints",
+        "Observability"
+      ],
+      "discussionPoints": [
+        "Why do agent workflows need explicit state?",
+        "When is a simple chain enough vs needing a graph?",
+        "How do you debug a multi-step agent?"
+      ],
+      "questions": [
+        "Is orchestration tooling solving a temporary gap or a lasting need?"
+      ],
+      "applications": [
+        "Multi-step research assistants",
+        "Automated report generation",
+        "Financial data pipelines"
+      ],
+      "vocabulary": [
+        {
+          "word": "orchestration",
+          "definition": "coordinating many parts to work together"
+        }
+      ],
+      "keywords": [
+        "state graph",
+        "node",
+        "checkpoint",
+        "observability"
+      ],
+      "id": "ai-langgraph-orchestration",
+      "categoryId": "ai"
+    },
+    {
+      "title": "Model Quantization",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 3,
+      "intro": "Shrinking a model's numerical precision to make it faster and cheaper to run.",
+      "concepts": [
+        "FP16 vs INT8 vs INT4",
+        "Accuracy vs speed trade-off",
+        "Hardware efficiency",
+        "Post-training vs quantization-aware training"
+      ],
+      "discussionPoints": [
+        "How much accuracy is acceptable to lose for speed?",
+        "Why does quantization matter for edge devices?"
+      ],
+      "questions": [
+        "Will future chips make quantization unnecessary?"
+      ],
+      "applications": [
+        "Running LLMs on phones",
+        "Cheaper inference at scale",
+        "Edge robotics"
+      ],
+      "vocabulary": [
+        {
+          "word": "precision",
+          "definition": "how exact the numbers are"
+        }
+      ],
+      "keywords": [
+        "quantization",
+        "inference",
+        "precision",
+        "edge device"
+      ],
+      "id": "ai-model-quantization",
+      "categoryId": "ai"
+    },
+    {
+      "title": "LLM Hallucination",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "When a model states something false with full confidence.",
+      "concepts": [
+        "Why hallucination happens statistically",
+        "Confidence vs correctness",
+        "Mitigations: grounding, citations, verification"
+      ],
+      "discussionPoints": [
+        "Can hallucination ever be fully eliminated?",
+        "Should models say 'I don't know' more often?"
+      ],
+      "questions": [
+        "Is hallucination a bug or an inherent trait of generative models?"
+      ],
+      "applications": [
+        "Legal drafting risk",
+        "Medical advice risk",
+        "Customer-facing chatbots"
+      ],
+      "vocabulary": [
+        {
+          "word": "confidence",
+          "definition": "how sure something sounds"
+        }
+      ],
+      "keywords": [
+        "hallucination",
+        "grounding",
+        "confidence",
+        "factuality"
+      ],
+      "id": "ai-llm-hallucination",
+      "categoryId": "ai"
+    },
+    {
+      "title": "Gradient Descent",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "The optimisation method that nudges a model's parameters toward lower error.",
+      "concepts": [
+        "Learning rate",
+        "Local minima vs saddle points",
+        "Batch vs stochastic updates",
+        "Momentum"
+      ],
+      "discussionPoints": [
+        "Why not just solve for the minimum directly?",
+        "What happens if the learning rate is too high?"
+      ],
+      "questions": [
+        "Is gradient descent the reason deep learning works, or just good enough?"
+      ],
+      "applications": [
+        "Training neural networks",
+        "Fitting regression models"
+      ],
+      "vocabulary": [
+        {
+          "word": "optimisation",
+          "definition": "finding the best possible value"
+        }
+      ],
+      "keywords": [
+        "gradient",
+        "learning rate",
+        "loss function",
+        "convergence"
+      ],
+      "id": "ml-gradient-descent",
+      "categoryId": "ml"
+    },
+    {
+      "title": "Overfitting & Regularisation",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "When a model memorises training data instead of learning general patterns.",
+      "concepts": [
+        "Train vs test error gap",
+        "Dropout",
+        "L1/L2 penalties",
+        "Early stopping"
+      ],
+      "discussionPoints": [
+        "How do you know a model is overfitting?",
+        "Why does more data usually help?"
+      ],
+      "questions": [
+        "Is overfitting purely a technical problem, or also a data problem?"
+      ],
+      "applications": [
+        "Medical diagnosis models",
+        "Credit scoring models"
+      ],
+      "vocabulary": [
+        {
+          "word": "generalise",
+          "definition": "perform well on new, unseen data"
+        }
+      ],
+      "keywords": [
+        "overfitting",
+        "regularisation",
+        "dropout",
+        "generalisation"
+      ],
+      "id": "ml-overfitting-regularisation",
+      "categoryId": "ml"
+    },
+    {
+      "title": "Bias-Variance Tradeoff",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "The balance between a model being too simple or too sensitive to noise.",
+      "concepts": [
+        "High bias = underfitting",
+        "High variance = overfitting",
+        "Ensemble methods reducing variance"
+      ],
+      "discussionPoints": [
+        "Can you reduce both bias and variance at once?",
+        "How does model complexity map to this tradeoff?"
+      ],
+      "questions": [
+        "Does this tradeoff still apply to today's massive models?"
+      ],
+      "applications": [
+        "Model selection in production systems"
+      ],
+      "vocabulary": [
+        {
+          "word": "variance",
+          "definition": "how much predictions swing with new data"
+        }
+      ],
+      "keywords": [
+        "bias",
+        "variance",
+        "underfitting",
+        "ensemble"
+      ],
+      "id": "ml-bias-variance-tradeoff",
+      "categoryId": "ml"
+    },
+    {
+      "title": "Random Forests & Ensembles",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "Combining many weak models to make one strong prediction.",
+      "concepts": [
+        "Bagging vs boosting",
+        "Decision tree basics",
+        "Voting/averaging predictions"
+      ],
+      "discussionPoints": [
+        "Why do many weak models beat one strong model?",
+        "When would you avoid ensembles?"
+      ],
+      "questions": [
+        "Is model simplicity undervalued in an era obsessed with deep learning?"
+      ],
+      "applications": [
+        "Fraud detection",
+        "Credit risk models"
+      ],
+      "vocabulary": [
+        {
+          "word": "ensemble",
+          "definition": "a group working together"
+        }
+      ],
+      "keywords": [
+        "bagging",
+        "boosting",
+        "decision tree",
+        "ensemble"
+      ],
+      "id": "ml-random-forests-ensembles",
+      "categoryId": "ml"
+    },
+    {
+      "title": "Reinforcement Learning from Human Feedback (RLHF)",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 3,
+      "intro": "Training a model using human preference rankings rather than fixed labels.",
+      "concepts": [
+        "Reward model training",
+        "Policy optimisation",
+        "Preference data collection",
+        "Reward hacking risk"
+      ],
+      "discussionPoints": [
+        "Why not just use supervised learning alone?",
+        "How representative are the humans providing feedback?"
+      ],
+      "questions": [
+        "Whose preferences should shape a widely-used AI's behaviour?"
+      ],
+      "applications": [
+        "Chatbot tone tuning",
+        "Recommendation systems"
+      ],
+      "vocabulary": [
+        {
+          "word": "reward model",
+          "definition": "a model trained to score good responses"
+        }
+      ],
+      "keywords": [
+        "reward model",
+        "policy",
+        "preference data",
+        "fine-tuning"
+      ],
+      "id": "ml-reinforcement-learning-from-human-feedback-rlhf",
+      "categoryId": "ml"
+    },
+    {
+      "title": "Feature Engineering",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "Shaping raw data into inputs a model can actually learn from.",
+      "concepts": [
+        "Encoding categorical data",
+        "Scaling numerical data",
+        "Domain-driven features"
+      ],
+      "discussionPoints": [
+        "Why does feature quality often matter more than model choice?",
+        "Is feature engineering dying with deep learning?"
+      ],
+      "questions": [
+        "Will automated feature learning fully replace manual feature engineering?"
+      ],
+      "applications": [
+        "Tabular data in finance",
+        "Sensor data in manufacturing"
+      ],
+      "vocabulary": [
+        {
+          "word": "encoding",
+          "definition": "converting data into a usable numeric form"
+        }
+      ],
+      "keywords": [
+        "feature",
+        "encoding",
+        "scaling",
+        "domain knowledge"
+      ],
+      "id": "ml-feature-engineering",
+      "categoryId": "ml"
+    },
+    {
+      "title": "Model Evaluation Metrics",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "The numbers used to judge whether a model is actually good.",
+      "concepts": [
+        "Precision vs recall",
+        "ROC-AUC",
+        "F1 score",
+        "Choosing the right metric for the problem"
+      ],
+      "discussionPoints": [
+        "Why can a model have 99% accuracy and still be useless?",
+        "When does recall matter more than precision?"
+      ],
+      "questions": [
+        "Should a single metric ever fully decide if a model ships?"
+      ],
+      "applications": [
+        "Spam detection",
+        "Cancer screening models"
+      ],
+      "vocabulary": [
+        {
+          "word": "precision",
+          "definition": "how many flagged cases were actually correct"
+        }
+      ],
+      "keywords": [
+        "precision",
+        "recall",
+        "F1 score",
+        "confusion matrix"
+      ],
+      "id": "ml-model-evaluation-metrics",
+      "categoryId": "ml"
+    },
+    {
+      "title": "Transfer Learning",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "Reusing a model trained on one task as the starting point for another.",
+      "concepts": [
+        "Pretraining vs fine-tuning",
+        "Frozen vs trainable layers",
+        "Domain shift"
+      ],
+      "discussionPoints": [
+        "Why start from a pretrained model instead of from scratch?",
+        "When does transfer learning fail?"
+      ],
+      "questions": [
+        "Is transfer learning making from-scratch training obsolete?"
+      ],
+      "applications": [
+        "Medical imaging with limited data",
+        "Fine-tuning LLMs for a company's domain"
+      ],
+      "vocabulary": [
+        {
+          "word": "fine-tuning",
+          "definition": "further training on a specific task"
+        }
+      ],
+      "keywords": [
+        "pretraining",
+        "fine-tuning",
+        "domain shift",
+        "frozen layers"
+      ],
+      "id": "ml-transfer-learning",
+      "categoryId": "ml"
+    },
+    {
+      "title": "Time Value of Money",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "The principle that a rupee today is worth more than a rupee tomorrow.",
+      "concepts": [
+        "Present value vs future value",
+        "Discount rate",
+        "Compounding frequency"
+      ],
+      "discussionPoints": [
+        "Why does inflation alone justify this principle?",
+        "How does discount rate choice change a valuation?"
+      ],
+      "questions": [
+        "Is a low discount rate a sign of optimism or recklessness in a valuation?"
+      ],
+      "applications": [
+        "Bond pricing",
+        "Retirement planning",
+        "Project valuation"
+      ],
+      "vocabulary": [
+        {
+          "word": "discount rate",
+          "definition": "the rate used to shrink future money to today's value"
+        }
+      ],
+      "keywords": [
+        "present value",
+        "future value",
+        "discounting",
+        "compounding"
+      ],
+      "id": "finance-time-value-of-money",
+      "categoryId": "finance"
+    },
+    {
+      "title": "Capital Structure",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "How a company splits its funding between debt and equity.",
+      "concepts": [
+        "Debt vs equity trade-off",
+        "Cost of capital",
+        "Financial leverage",
+        "Bankruptcy risk"
+      ],
+      "discussionPoints": [
+        "Why would a profitable company still take on debt?",
+        "How does leverage amplify both gains and losses?"
+      ],
+      "questions": [
+        "Is there really an 'optimal' capital structure, or is it always contextual?"
+      ],
+      "applications": [
+        "Startup fundraising decisions",
+        "Corporate buybacks"
+      ],
+      "vocabulary": [
+        {
+          "word": "leverage",
+          "definition": "using borrowed money to increase potential return"
+        }
+      ],
+      "keywords": [
+        "debt",
+        "equity",
+        "leverage",
+        "cost of capital"
+      ],
+      "id": "finance-capital-structure",
+      "categoryId": "finance"
+    },
+    {
+      "title": "Derivatives: Options & Futures",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 3,
+      "intro": "Financial contracts whose value depends on an underlying asset.",
+      "concepts": [
+        "Calls vs puts",
+        "Hedging vs speculation",
+        "Payoff diagrams",
+        "Margin requirements"
+      ],
+      "discussionPoints": [
+        "Why do derivatives get blamed for financial crises?",
+        "Is hedging just insurance, or is it also a bet?"
+      ],
+      "questions": [
+        "Should retail investors be allowed the same access to derivatives as institutions?"
+      ],
+      "applications": [
+        "Corporate currency hedging",
+        "Portfolio protection",
+        "Commodity price locking"
+      ],
+      "vocabulary": [
+        {
+          "word": "hedging",
+          "definition": "reducing risk by taking an offsetting position"
+        }
+      ],
+      "keywords": [
+        "call option",
+        "put option",
+        "strike price",
+        "hedge"
+      ],
+      "id": "finance-derivatives-options-futures",
+      "categoryId": "finance"
+    },
+    {
+      "title": "Financial Statement Analysis",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 3,
+      "intro": "Reading a company's numbers to judge its real financial health.",
+      "concepts": [
+        "Income statement vs balance sheet vs cash flow",
+        "Ratio analysis",
+        "Red flags in reported earnings"
+      ],
+      "discussionPoints": [
+        "Why can a profitable company still run out of cash?",
+        "What ratios matter most for a growth company vs a mature one?"
+      ],
+      "questions": [
+        "Can financial statements ever be fully trusted without independent checks?"
+      ],
+      "applications": [
+        "Equity research",
+        "Credit underwriting",
+        "M&A due diligence"
+      ],
+      "vocabulary": [
+        {
+          "word": "liquidity",
+          "definition": "how easily assets convert to cash"
+        }
+      ],
+      "keywords": [
+        "balance sheet",
+        "cash flow",
+        "liquidity",
+        "ratio analysis"
+      ],
+      "id": "finance-financial-statement-analysis",
+      "categoryId": "finance"
+    },
+    {
+      "title": "Mergers & Acquisitions",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 3,
+      "intro": "How companies combine, and the financial logic behind the deals.",
+      "concepts": [
+        "Synergies",
+        "Valuation methods (DCF, comps)",
+        "Deal financing",
+        "Integration risk"
+      ],
+      "discussionPoints": [
+        "Why do most M&A deals fail to create value?",
+        "How do you value 'synergy' before it exists?"
+      ],
+      "questions": [
+        "Is the pursuit of scale through M&A usually about strategy or ego?"
+      ],
+      "applications": [
+        "Cross-border acquisitions",
+        "Private equity buyouts"
+      ],
+      "vocabulary": [
+        {
+          "word": "synergy",
+          "definition": "extra value from combining two things"
+        }
+      ],
+      "keywords": [
+        "synergy",
+        "valuation",
+        "due diligence",
+        "integration"
+      ],
+      "id": "finance-mergers-acquisitions",
+      "categoryId": "finance"
+    },
+    {
+      "title": "Risk Management in Banking",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 3,
+      "intro": "How financial institutions measure and control the risks they take on.",
+      "concepts": [
+        "Credit risk vs market risk vs operational risk",
+        "Value at Risk (VaR)",
+        "Stress testing",
+        "Regulatory capital"
+      ],
+      "discussionPoints": [
+        "Why did risk models fail during the 2008 crisis?",
+        "How much risk-taking is healthy for an economy?"
+      ],
+      "questions": [
+        "Can risk ever truly be quantified, or only estimated?"
+      ],
+      "applications": [
+        "Bank capital requirements",
+        "Trading desk risk limits"
+      ],
+      "vocabulary": [
+        {
+          "word": "stress testing",
+          "definition": "checking how a system holds up under extreme conditions"
+        }
+      ],
+      "keywords": [
+        "value at risk",
+        "credit risk",
+        "stress test",
+        "capital adequacy"
+      ],
+      "id": "finance-risk-management-in-banking",
+      "categoryId": "finance"
+    },
+    {
+      "title": "Behavioural Finance",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "Why real investors don't behave like the rational actors in textbooks.",
+      "concepts": [
+        "Loss aversion",
+        "Herd behaviour",
+        "Overconfidence bias",
+        "Anchoring"
+      ],
+      "discussionPoints": [
+        "Why do smart people still make irrational money decisions?",
+        "How do markets exploit predictable human biases?"
+      ],
+      "questions": [
+        "Can behavioural biases ever be fully 'trained out' of a professional investor?"
+      ],
+      "applications": [
+        "Retail trading apps",
+        "Retirement savings design"
+      ],
+      "vocabulary": [
+        {
+          "word": "loss aversion",
+          "definition": "feeling losses more strongly than equal gains"
+        }
+      ],
+      "keywords": [
+        "loss aversion",
+        "herd behaviour",
+        "anchoring",
+        "overconfidence"
+      ],
+      "id": "finance-behavioural-finance",
+      "categoryId": "finance"
+    },
+    {
+      "title": "Central Bank Policy",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 3,
+      "intro": "How interest rate and money supply decisions ripple through an economy.",
+      "concepts": [
+        "Interest rate policy",
+        "Quantitative easing",
+        "Inflation targeting",
+        "Independence of central banks"
+      ],
+      "discussionPoints": [
+        "Why does a small rate change move global markets?",
+        "Should central banks be fully independent from government?"
+      ],
+      "questions": [
+        "Is inflation targeting still the right framework for today's economy?"
+      ],
+      "applications": [
+        "Mortgage rates",
+        "Currency valuation",
+        "Corporate borrowing costs"
+      ],
+      "vocabulary": [
+        {
+          "word": "quantitative easing",
+          "definition": "a central bank buying assets to add money to the economy"
+        }
+      ],
+      "keywords": [
+        "interest rate",
+        "quantitative easing",
+        "inflation target",
+        "monetary policy"
+      ],
+      "id": "finance-central-bank-policy",
+      "categoryId": "finance"
+    },
+    {
+      "title": "Value Investing",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "Buying assets for meaningfully less than their intrinsic worth.",
+      "concepts": [
+        "Intrinsic value vs price",
+        "Margin of safety",
+        "Contrarian positioning"
+      ],
+      "discussionPoints": [
+        "How do you estimate intrinsic value without perfect information?",
+        "Why does value investing go out of fashion for years at a time?"
+      ],
+      "questions": [
+        "Is value investing still viable in markets dominated by algorithms?"
+      ],
+      "applications": [
+        "Long-term equity portfolios",
+        "Distressed asset investing"
+      ],
+      "vocabulary": [
+        {
+          "word": "intrinsic value",
+          "definition": "what something is really worth, beyond market price"
+        }
+      ],
+      "keywords": [
+        "margin of safety",
+        "intrinsic value",
+        "contrarian",
+        "undervalued"
+      ],
+      "id": "investing-value-investing",
+      "categoryId": "investing"
+    },
+    {
+      "title": "Portfolio Diversification",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "Spreading investments to reduce the impact of any single loss.",
+      "concepts": [
+        "Correlation between assets",
+        "Systematic vs idiosyncratic risk",
+        "Rebalancing"
+      ],
+      "discussionPoints": [
+        "Can you be 'too diversified'?",
+        "Why doesn't diversification protect against every crash?"
+      ],
+      "questions": [
+        "Is home-country bias in portfolios a mistake or a reasonable choice?"
+      ],
+      "applications": [
+        "Retirement funds",
+        "Index fund construction"
+      ],
+      "vocabulary": [
+        {
+          "word": "correlation",
+          "definition": "how closely two things move together"
+        }
+      ],
+      "keywords": [
+        "diversification",
+        "correlation",
+        "systematic risk",
+        "rebalancing"
+      ],
+      "id": "investing-portfolio-diversification",
+      "categoryId": "investing"
+    },
+    {
+      "title": "Efficient Market Hypothesis",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 3,
+      "intro": "The theory that asset prices already reflect all available information.",
+      "concepts": [
+        "Weak vs semi-strong vs strong form",
+        "Implications for active management",
+        "Anomalies that challenge it"
+      ],
+      "discussionPoints": [
+        "If markets are efficient, why do bubbles happen?",
+        "Can any investor consistently beat the market?"
+      ],
+      "questions": [
+        "Is EMH a description of reality or a useful simplifying assumption?"
+      ],
+      "applications": [
+        "Index fund vs active fund debate",
+        "Insider trading regulation"
+      ],
+      "vocabulary": [
+        {
+          "word": "anomaly",
+          "definition": "something that doesn't fit the expected pattern"
+        }
+      ],
+      "keywords": [
+        "efficient market",
+        "active management",
+        "anomaly",
+        "alpha"
+      ],
+      "id": "investing-efficient-market-hypothesis",
+      "categoryId": "investing"
+    },
+    {
+      "title": "Quantitative Trading Strategies",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 3,
+      "intro": "Using mathematical models and data to systematically trade markets.",
+      "concepts": [
+        "Statistical arbitrage",
+        "Momentum vs mean reversion",
+        "Backtesting pitfalls",
+        "Execution and slippage"
+      ],
+      "discussionPoints": [
+        "Why do backtested strategies often fail live?",
+        "How much of quant success is skill vs market regime luck?"
+      ],
+      "questions": [
+        "Will markets eventually become too efficient for quant strategies to work?"
+      ],
+      "applications": [
+        "Hedge fund alpha generation",
+        "High-frequency trading"
+      ],
+      "vocabulary": [
+        {
+          "word": "backtesting",
+          "definition": "testing a strategy on historical data"
+        }
+      ],
+      "keywords": [
+        "statistical arbitrage",
+        "momentum",
+        "mean reversion",
+        "backtest"
+      ],
+      "id": "investing-quantitative-trading-strategies",
+      "categoryId": "investing"
+    },
+    {
+      "title": "Asset Allocation",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "Deciding how to split money across stocks, bonds, cash, and alternatives.",
+      "concepts": [
+        "Risk tolerance vs time horizon",
+        "Strategic vs tactical allocation",
+        "Life-cycle investing"
+      ],
+      "discussionPoints": [
+        "Why does age typically shift allocation toward bonds?",
+        "How should allocation change during a crisis?"
+      ],
+      "questions": [
+        "Should retail investors attempt tactical allocation at all?"
+      ],
+      "applications": [
+        "Pension fund management",
+        "Robo-advisor design"
+      ],
+      "vocabulary": [
+        {
+          "word": "risk tolerance",
+          "definition": "how much loss someone can accept"
+        }
+      ],
+      "keywords": [
+        "allocation",
+        "risk tolerance",
+        "time horizon",
+        "rebalancing"
+      ],
+      "id": "investing-asset-allocation",
+      "categoryId": "investing"
+    },
+    {
+      "title": "Venture Capital Investing",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "Funding early, high-risk companies in exchange for equity and outsized upside.",
+      "concepts": [
+        "Power law returns",
+        "Term sheets",
+        "Follow-on investing",
+        "Exit strategy"
+      ],
+      "discussionPoints": [
+        "Why do VCs accept that most bets will fail?",
+        "How do you value a company with no revenue?"
+      ],
+      "questions": [
+        "Is the power-law model of VC returns sustainable long-term?"
+      ],
+      "applications": [
+        "Startup fundraising rounds",
+        "Corporate venture arms"
+      ],
+      "vocabulary": [
+        {
+          "word": "power law",
+          "definition": "a pattern where a few outcomes drive most results"
+        }
+      ],
+      "keywords": [
+        "term sheet",
+        "power law",
+        "valuation",
+        "exit"
+      ],
+      "id": "investing-venture-capital-investing",
+      "categoryId": "investing"
+    },
+    {
+      "title": "Cryptocurrency as an Asset Class",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "Digital assets and the debate over whether they belong in a portfolio.",
+      "concepts": [
+        "Volatility vs traditional assets",
+        "Store of value narrative",
+        "Regulatory uncertainty"
+      ],
+      "discussionPoints": [
+        "Is crypto a currency, a commodity, or a speculative asset?",
+        "How should risk-averse investors think about crypto exposure?"
+      ],
+      "questions": [
+        "Will regulation make crypto more like traditional finance, or undermine its purpose?"
+      ],
+      "applications": [
+        "Portfolio hedging debates",
+        "Cross-border payments"
+      ],
+      "vocabulary": [
+        {
+          "word": "volatility",
+          "definition": "how sharply a price swings"
+        }
+      ],
+      "keywords": [
+        "volatility",
+        "store of value",
+        "regulation",
+        "digital asset"
+      ],
+      "id": "investing-cryptocurrency-as-an-asset-class",
+      "categoryId": "investing"
+    },
+    {
+      "title": "Bond Markets & Yield Curves",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 3,
+      "intro": "How debt markets price risk and time, and what the yield curve signals.",
+      "concepts": [
+        "Yield vs price relationship",
+        "Inverted yield curve as recession signal",
+        "Credit spreads"
+      ],
+      "discussionPoints": [
+        "Why does an inverted yield curve worry economists?",
+        "How do interest rate expectations shape the curve?"
+      ],
+      "questions": [
+        "Is the yield curve still a reliable recession predictor today?"
+      ],
+      "applications": [
+        "Government debt issuance",
+        "Corporate bond investing"
+      ],
+      "vocabulary": [
+        {
+          "word": "yield curve",
+          "definition": "a chart of interest rates across different loan durations"
+        }
+      ],
+      "keywords": [
+        "yield curve",
+        "credit spread",
+        "duration",
+        "inversion"
+      ],
+      "id": "investing-bond-markets-yield-curves",
+      "categoryId": "investing"
+    },
+    {
+      "id": "datascience-core-principles-of-data-science",
+      "categoryId": "datascience",
+      "title": "Core Principles of Data Science",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on data science \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Data Science",
+        "Key idea #2 in Data Science",
+        "Key idea #3 in Data Science"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in data science today?"
+      ],
+      "applications": [
+        "A real application of data science"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "data science"
+      ]
+    },
+    {
+      "id": "datascience-a-turning-point-in-data-science",
+      "categoryId": "datascience",
+      "title": "A Turning Point in Data Science",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on data science \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Data Science",
+        "Key idea #2 in Data Science",
+        "Key idea #3 in Data Science"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in data science today?"
+      ],
+      "applications": [
+        "A real application of data science"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "data science"
+      ]
+    },
+    {
+      "id": "datascience-a-controversial-debate-in-data-science",
+      "categoryId": "datascience",
+      "title": "A Controversial Debate in Data Science",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on data science \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Data Science",
+        "Key idea #2 in Data Science",
+        "Key idea #3 in Data Science"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in data science today?"
+      ],
+      "applications": [
+        "A real application of data science"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "data science"
+      ]
+    },
+    {
+      "id": "datascience-data-science-in-everyday-life",
+      "categoryId": "datascience",
+      "title": "Data Science in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on data science \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Data Science",
+        "Key idea #2 in Data Science",
+        "Key idea #3 in Data Science"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in data science today?"
+      ],
+      "applications": [
+        "A real application of data science"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "data science"
+      ]
+    },
+    {
+      "id": "datascience-the-future-of-data-science",
+      "categoryId": "datascience",
+      "title": "The Future of Data Science",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on data science \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Data Science",
+        "Key idea #2 in Data Science",
+        "Key idea #3 in Data Science"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in data science today?"
+      ],
+      "applications": [
+        "A real application of data science"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "data science"
+      ]
+    },
+    {
+      "id": "datascience-a-common-misconception-in-data-science",
+      "categoryId": "datascience",
+      "title": "A Common Misconception in Data Science",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on data science \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Data Science",
+        "Key idea #2 in Data Science",
+        "Key idea #3 in Data Science"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in data science today?"
+      ],
+      "applications": [
+        "A real application of data science"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "data science"
+      ]
+    },
+    {
+      "id": "economics-core-principles-of-economics",
+      "categoryId": "economics",
+      "title": "Core Principles of Economics",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on economics \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Economics",
+        "Key idea #2 in Economics",
+        "Key idea #3 in Economics"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in economics today?"
+      ],
+      "applications": [
+        "A real application of economics"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "economics"
+      ]
+    },
+    {
+      "id": "economics-a-turning-point-in-economics",
+      "categoryId": "economics",
+      "title": "A Turning Point in Economics",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on economics \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Economics",
+        "Key idea #2 in Economics",
+        "Key idea #3 in Economics"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in economics today?"
+      ],
+      "applications": [
+        "A real application of economics"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "economics"
+      ]
+    },
+    {
+      "id": "economics-a-controversial-debate-in-economics",
+      "categoryId": "economics",
+      "title": "A Controversial Debate in Economics",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on economics \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Economics",
+        "Key idea #2 in Economics",
+        "Key idea #3 in Economics"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in economics today?"
+      ],
+      "applications": [
+        "A real application of economics"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "economics"
+      ]
+    },
+    {
+      "id": "economics-economics-in-everyday-life",
+      "categoryId": "economics",
+      "title": "Economics in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on economics \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Economics",
+        "Key idea #2 in Economics",
+        "Key idea #3 in Economics"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in economics today?"
+      ],
+      "applications": [
+        "A real application of economics"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "economics"
+      ]
+    },
+    {
+      "id": "economics-the-future-of-economics",
+      "categoryId": "economics",
+      "title": "The Future of Economics",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on economics \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Economics",
+        "Key idea #2 in Economics",
+        "Key idea #3 in Economics"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in economics today?"
+      ],
+      "applications": [
+        "A real application of economics"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "economics"
+      ]
+    },
+    {
+      "id": "economics-a-common-misconception-in-economics",
+      "categoryId": "economics",
+      "title": "A Common Misconception in Economics",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on economics \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Economics",
+        "Key idea #2 in Economics",
+        "Key idea #3 in Economics"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in economics today?"
+      ],
+      "applications": [
+        "A real application of economics"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "economics"
+      ]
+    },
+    {
+      "id": "entrepreneurship-core-principles-of-entrepreneurship",
+      "categoryId": "entrepreneurship",
+      "title": "Core Principles of Entrepreneurship",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on entrepreneurship \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Entrepreneurship",
+        "Key idea #2 in Entrepreneurship",
+        "Key idea #3 in Entrepreneurship"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in entrepreneurship today?"
+      ],
+      "applications": [
+        "A real application of entrepreneurship"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "entrepreneurship"
+      ]
+    },
+    {
+      "id": "entrepreneurship-a-turning-point-in-entrepreneurship",
+      "categoryId": "entrepreneurship",
+      "title": "A Turning Point in Entrepreneurship",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on entrepreneurship \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Entrepreneurship",
+        "Key idea #2 in Entrepreneurship",
+        "Key idea #3 in Entrepreneurship"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in entrepreneurship today?"
+      ],
+      "applications": [
+        "A real application of entrepreneurship"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "entrepreneurship"
+      ]
+    },
+    {
+      "id": "entrepreneurship-a-controversial-debate-in-entrepreneurship",
+      "categoryId": "entrepreneurship",
+      "title": "A Controversial Debate in Entrepreneurship",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on entrepreneurship \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Entrepreneurship",
+        "Key idea #2 in Entrepreneurship",
+        "Key idea #3 in Entrepreneurship"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in entrepreneurship today?"
+      ],
+      "applications": [
+        "A real application of entrepreneurship"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "entrepreneurship"
+      ]
+    },
+    {
+      "id": "entrepreneurship-entrepreneurship-in-everyday-life",
+      "categoryId": "entrepreneurship",
+      "title": "Entrepreneurship in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on entrepreneurship \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Entrepreneurship",
+        "Key idea #2 in Entrepreneurship",
+        "Key idea #3 in Entrepreneurship"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in entrepreneurship today?"
+      ],
+      "applications": [
+        "A real application of entrepreneurship"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "entrepreneurship"
+      ]
+    },
+    {
+      "id": "entrepreneurship-the-future-of-entrepreneurship",
+      "categoryId": "entrepreneurship",
+      "title": "The Future of Entrepreneurship",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on entrepreneurship \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Entrepreneurship",
+        "Key idea #2 in Entrepreneurship",
+        "Key idea #3 in Entrepreneurship"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in entrepreneurship today?"
+      ],
+      "applications": [
+        "A real application of entrepreneurship"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "entrepreneurship"
+      ]
+    },
+    {
+      "id": "entrepreneurship-a-common-misconception-in-entrepreneurship",
+      "categoryId": "entrepreneurship",
+      "title": "A Common Misconception in Entrepreneurship",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on entrepreneurship \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Entrepreneurship",
+        "Key idea #2 in Entrepreneurship",
+        "Key idea #3 in Entrepreneurship"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in entrepreneurship today?"
+      ],
+      "applications": [
+        "A real application of entrepreneurship"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "entrepreneurship"
+      ]
+    },
+    {
+      "id": "strategy-core-principles-of-business-strategy",
+      "categoryId": "strategy",
+      "title": "Core Principles of Business Strategy",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on business strategy \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Business Strategy",
+        "Key idea #2 in Business Strategy",
+        "Key idea #3 in Business Strategy"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in business strategy today?"
+      ],
+      "applications": [
+        "A real application of business strategy"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "business strategy"
+      ]
+    },
+    {
+      "id": "strategy-a-turning-point-in-business-strategy",
+      "categoryId": "strategy",
+      "title": "A Turning Point in Business Strategy",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on business strategy \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Business Strategy",
+        "Key idea #2 in Business Strategy",
+        "Key idea #3 in Business Strategy"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in business strategy today?"
+      ],
+      "applications": [
+        "A real application of business strategy"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "business strategy"
+      ]
+    },
+    {
+      "id": "strategy-a-controversial-debate-in-business-strategy",
+      "categoryId": "strategy",
+      "title": "A Controversial Debate in Business Strategy",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on business strategy \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Business Strategy",
+        "Key idea #2 in Business Strategy",
+        "Key idea #3 in Business Strategy"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in business strategy today?"
+      ],
+      "applications": [
+        "A real application of business strategy"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "business strategy"
+      ]
+    },
+    {
+      "id": "strategy-business-strategy-in-everyday-life",
+      "categoryId": "strategy",
+      "title": "Business Strategy in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on business strategy \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Business Strategy",
+        "Key idea #2 in Business Strategy",
+        "Key idea #3 in Business Strategy"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in business strategy today?"
+      ],
+      "applications": [
+        "A real application of business strategy"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "business strategy"
+      ]
+    },
+    {
+      "id": "strategy-the-future-of-business-strategy",
+      "categoryId": "strategy",
+      "title": "The Future of Business Strategy",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on business strategy \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Business Strategy",
+        "Key idea #2 in Business Strategy",
+        "Key idea #3 in Business Strategy"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in business strategy today?"
+      ],
+      "applications": [
+        "A real application of business strategy"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "business strategy"
+      ]
+    },
+    {
+      "id": "strategy-a-common-misconception-in-business-strategy",
+      "categoryId": "strategy",
+      "title": "A Common Misconception in Business Strategy",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on business strategy \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Business Strategy",
+        "Key idea #2 in Business Strategy",
+        "Key idea #3 in Business Strategy"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in business strategy today?"
+      ],
+      "applications": [
+        "A real application of business strategy"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "business strategy"
+      ]
+    },
+    {
+      "id": "leadership-core-principles-of-leadership",
+      "categoryId": "leadership",
+      "title": "Core Principles of Leadership",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on leadership \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Leadership",
+        "Key idea #2 in Leadership",
+        "Key idea #3 in Leadership"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in leadership today?"
+      ],
+      "applications": [
+        "A real application of leadership"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "leadership"
+      ]
+    },
+    {
+      "id": "leadership-a-turning-point-in-leadership",
+      "categoryId": "leadership",
+      "title": "A Turning Point in Leadership",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on leadership \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Leadership",
+        "Key idea #2 in Leadership",
+        "Key idea #3 in Leadership"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in leadership today?"
+      ],
+      "applications": [
+        "A real application of leadership"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "leadership"
+      ]
+    },
+    {
+      "id": "leadership-a-controversial-debate-in-leadership",
+      "categoryId": "leadership",
+      "title": "A Controversial Debate in Leadership",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on leadership \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Leadership",
+        "Key idea #2 in Leadership",
+        "Key idea #3 in Leadership"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in leadership today?"
+      ],
+      "applications": [
+        "A real application of leadership"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "leadership"
+      ]
+    },
+    {
+      "id": "leadership-leadership-in-everyday-life",
+      "categoryId": "leadership",
+      "title": "Leadership in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on leadership \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Leadership",
+        "Key idea #2 in Leadership",
+        "Key idea #3 in Leadership"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in leadership today?"
+      ],
+      "applications": [
+        "A real application of leadership"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "leadership"
+      ]
+    },
+    {
+      "id": "leadership-the-future-of-leadership",
+      "categoryId": "leadership",
+      "title": "The Future of Leadership",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on leadership \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Leadership",
+        "Key idea #2 in Leadership",
+        "Key idea #3 in Leadership"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in leadership today?"
+      ],
+      "applications": [
+        "A real application of leadership"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "leadership"
+      ]
+    },
+    {
+      "id": "leadership-a-common-misconception-in-leadership",
+      "categoryId": "leadership",
+      "title": "A Common Misconception in Leadership",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on leadership \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Leadership",
+        "Key idea #2 in Leadership",
+        "Key idea #3 in Leadership"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in leadership today?"
+      ],
+      "applications": [
+        "A real application of leadership"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "leadership"
+      ]
+    },
+    {
+      "id": "negotiation-core-principles-of-negotiation",
+      "categoryId": "negotiation",
+      "title": "Core Principles of Negotiation",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on negotiation \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Negotiation",
+        "Key idea #2 in Negotiation",
+        "Key idea #3 in Negotiation"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in negotiation today?"
+      ],
+      "applications": [
+        "A real application of negotiation"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "negotiation"
+      ]
+    },
+    {
+      "id": "negotiation-a-turning-point-in-negotiation",
+      "categoryId": "negotiation",
+      "title": "A Turning Point in Negotiation",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on negotiation \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Negotiation",
+        "Key idea #2 in Negotiation",
+        "Key idea #3 in Negotiation"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in negotiation today?"
+      ],
+      "applications": [
+        "A real application of negotiation"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "negotiation"
+      ]
+    },
+    {
+      "id": "negotiation-a-controversial-debate-in-negotiation",
+      "categoryId": "negotiation",
+      "title": "A Controversial Debate in Negotiation",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on negotiation \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Negotiation",
+        "Key idea #2 in Negotiation",
+        "Key idea #3 in Negotiation"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in negotiation today?"
+      ],
+      "applications": [
+        "A real application of negotiation"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "negotiation"
+      ]
+    },
+    {
+      "id": "negotiation-negotiation-in-everyday-life",
+      "categoryId": "negotiation",
+      "title": "Negotiation in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on negotiation \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Negotiation",
+        "Key idea #2 in Negotiation",
+        "Key idea #3 in Negotiation"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in negotiation today?"
+      ],
+      "applications": [
+        "A real application of negotiation"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "negotiation"
+      ]
+    },
+    {
+      "id": "negotiation-the-future-of-negotiation",
+      "categoryId": "negotiation",
+      "title": "The Future of Negotiation",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on negotiation \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Negotiation",
+        "Key idea #2 in Negotiation",
+        "Key idea #3 in Negotiation"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in negotiation today?"
+      ],
+      "applications": [
+        "A real application of negotiation"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "negotiation"
+      ]
+    },
+    {
+      "id": "negotiation-a-common-misconception-in-negotiation",
+      "categoryId": "negotiation",
+      "title": "A Common Misconception in Negotiation",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on negotiation \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Negotiation",
+        "Key idea #2 in Negotiation",
+        "Key idea #3 in Negotiation"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in negotiation today?"
+      ],
+      "applications": [
+        "A real application of negotiation"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "negotiation"
+      ]
+    },
+    {
+      "id": "decisionmaking-core-principles-of-decision-making",
+      "categoryId": "decisionmaking",
+      "title": "Core Principles of Decision Making",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on decision making \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Decision Making",
+        "Key idea #2 in Decision Making",
+        "Key idea #3 in Decision Making"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in decision making today?"
+      ],
+      "applications": [
+        "A real application of decision making"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "decision making"
+      ]
+    },
+    {
+      "id": "decisionmaking-a-turning-point-in-decision-making",
+      "categoryId": "decisionmaking",
+      "title": "A Turning Point in Decision Making",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on decision making \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Decision Making",
+        "Key idea #2 in Decision Making",
+        "Key idea #3 in Decision Making"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in decision making today?"
+      ],
+      "applications": [
+        "A real application of decision making"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "decision making"
+      ]
+    },
+    {
+      "id": "decisionmaking-a-controversial-debate-in-decision-making",
+      "categoryId": "decisionmaking",
+      "title": "A Controversial Debate in Decision Making",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on decision making \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Decision Making",
+        "Key idea #2 in Decision Making",
+        "Key idea #3 in Decision Making"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in decision making today?"
+      ],
+      "applications": [
+        "A real application of decision making"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "decision making"
+      ]
+    },
+    {
+      "id": "decisionmaking-decision-making-in-everyday-life",
+      "categoryId": "decisionmaking",
+      "title": "Decision Making in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on decision making \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Decision Making",
+        "Key idea #2 in Decision Making",
+        "Key idea #3 in Decision Making"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in decision making today?"
+      ],
+      "applications": [
+        "A real application of decision making"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "decision making"
+      ]
+    },
+    {
+      "id": "decisionmaking-the-future-of-decision-making",
+      "categoryId": "decisionmaking",
+      "title": "The Future of Decision Making",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on decision making \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Decision Making",
+        "Key idea #2 in Decision Making",
+        "Key idea #3 in Decision Making"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in decision making today?"
+      ],
+      "applications": [
+        "A real application of decision making"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "decision making"
+      ]
+    },
+    {
+      "id": "decisionmaking-a-common-misconception-in-decision-making",
+      "categoryId": "decisionmaking",
+      "title": "A Common Misconception in Decision Making",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on decision making \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Decision Making",
+        "Key idea #2 in Decision Making",
+        "Key idea #3 in Decision Making"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in decision making today?"
+      ],
+      "applications": [
+        "A real application of decision making"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "decision making"
+      ]
+    },
+    {
+      "id": "philosophy-core-principles-of-philosophy",
+      "categoryId": "philosophy",
+      "title": "Core Principles of Philosophy",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on philosophy \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Philosophy",
+        "Key idea #2 in Philosophy",
+        "Key idea #3 in Philosophy"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in philosophy today?"
+      ],
+      "applications": [
+        "A real application of philosophy"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "philosophy"
+      ]
+    },
+    {
+      "id": "philosophy-a-turning-point-in-philosophy",
+      "categoryId": "philosophy",
+      "title": "A Turning Point in Philosophy",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on philosophy \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Philosophy",
+        "Key idea #2 in Philosophy",
+        "Key idea #3 in Philosophy"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in philosophy today?"
+      ],
+      "applications": [
+        "A real application of philosophy"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "philosophy"
+      ]
+    },
+    {
+      "id": "philosophy-a-controversial-debate-in-philosophy",
+      "categoryId": "philosophy",
+      "title": "A Controversial Debate in Philosophy",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on philosophy \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Philosophy",
+        "Key idea #2 in Philosophy",
+        "Key idea #3 in Philosophy"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in philosophy today?"
+      ],
+      "applications": [
+        "A real application of philosophy"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "philosophy"
+      ]
+    },
+    {
+      "id": "philosophy-philosophy-in-everyday-life",
+      "categoryId": "philosophy",
+      "title": "Philosophy in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on philosophy \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Philosophy",
+        "Key idea #2 in Philosophy",
+        "Key idea #3 in Philosophy"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in philosophy today?"
+      ],
+      "applications": [
+        "A real application of philosophy"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "philosophy"
+      ]
+    },
+    {
+      "id": "philosophy-the-future-of-philosophy",
+      "categoryId": "philosophy",
+      "title": "The Future of Philosophy",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on philosophy \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Philosophy",
+        "Key idea #2 in Philosophy",
+        "Key idea #3 in Philosophy"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in philosophy today?"
+      ],
+      "applications": [
+        "A real application of philosophy"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "philosophy"
+      ]
+    },
+    {
+      "id": "philosophy-a-common-misconception-in-philosophy",
+      "categoryId": "philosophy",
+      "title": "A Common Misconception in Philosophy",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on philosophy \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Philosophy",
+        "Key idea #2 in Philosophy",
+        "Key idea #3 in Philosophy"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in philosophy today?"
+      ],
+      "applications": [
+        "A real application of philosophy"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "philosophy"
+      ]
+    },
+    {
+      "id": "psychology-core-principles-of-human-behaviour",
+      "categoryId": "psychology",
+      "title": "Core Principles of Human Behaviour",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on human behaviour \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Human Behaviour",
+        "Key idea #2 in Human Behaviour",
+        "Key idea #3 in Human Behaviour"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in human behaviour today?"
+      ],
+      "applications": [
+        "A real application of human behaviour"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "human behaviour"
+      ]
+    },
+    {
+      "id": "psychology-a-turning-point-in-human-behaviour",
+      "categoryId": "psychology",
+      "title": "A Turning Point in Human Behaviour",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on human behaviour \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Human Behaviour",
+        "Key idea #2 in Human Behaviour",
+        "Key idea #3 in Human Behaviour"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in human behaviour today?"
+      ],
+      "applications": [
+        "A real application of human behaviour"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "human behaviour"
+      ]
+    },
+    {
+      "id": "psychology-a-controversial-debate-in-human-behaviour",
+      "categoryId": "psychology",
+      "title": "A Controversial Debate in Human Behaviour",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on human behaviour \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Human Behaviour",
+        "Key idea #2 in Human Behaviour",
+        "Key idea #3 in Human Behaviour"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in human behaviour today?"
+      ],
+      "applications": [
+        "A real application of human behaviour"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "human behaviour"
+      ]
+    },
+    {
+      "id": "psychology-human-behaviour-in-everyday-life",
+      "categoryId": "psychology",
+      "title": "Human Behaviour in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on human behaviour \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Human Behaviour",
+        "Key idea #2 in Human Behaviour",
+        "Key idea #3 in Human Behaviour"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in human behaviour today?"
+      ],
+      "applications": [
+        "A real application of human behaviour"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "human behaviour"
+      ]
+    },
+    {
+      "id": "psychology-the-future-of-human-behaviour",
+      "categoryId": "psychology",
+      "title": "The Future of Human Behaviour",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on human behaviour \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Human Behaviour",
+        "Key idea #2 in Human Behaviour",
+        "Key idea #3 in Human Behaviour"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in human behaviour today?"
+      ],
+      "applications": [
+        "A real application of human behaviour"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "human behaviour"
+      ]
+    },
+    {
+      "id": "psychology-a-common-misconception-in-human-behaviour",
+      "categoryId": "psychology",
+      "title": "A Common Misconception in Human Behaviour",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on human behaviour \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Human Behaviour",
+        "Key idea #2 in Human Behaviour",
+        "Key idea #3 in Human Behaviour"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in human behaviour today?"
+      ],
+      "applications": [
+        "A real application of human behaviour"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "human behaviour"
+      ]
+    },
+    {
+      "id": "mathematics-core-principles-of-mathematics",
+      "categoryId": "mathematics",
+      "title": "Core Principles of Mathematics",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on mathematics \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Mathematics",
+        "Key idea #2 in Mathematics",
+        "Key idea #3 in Mathematics"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in mathematics today?"
+      ],
+      "applications": [
+        "A real application of mathematics"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "mathematics"
+      ]
+    },
+    {
+      "id": "mathematics-a-turning-point-in-mathematics",
+      "categoryId": "mathematics",
+      "title": "A Turning Point in Mathematics",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on mathematics \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Mathematics",
+        "Key idea #2 in Mathematics",
+        "Key idea #3 in Mathematics"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in mathematics today?"
+      ],
+      "applications": [
+        "A real application of mathematics"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "mathematics"
+      ]
+    },
+    {
+      "id": "mathematics-a-controversial-debate-in-mathematics",
+      "categoryId": "mathematics",
+      "title": "A Controversial Debate in Mathematics",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on mathematics \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Mathematics",
+        "Key idea #2 in Mathematics",
+        "Key idea #3 in Mathematics"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in mathematics today?"
+      ],
+      "applications": [
+        "A real application of mathematics"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "mathematics"
+      ]
+    },
+    {
+      "id": "mathematics-mathematics-in-everyday-life",
+      "categoryId": "mathematics",
+      "title": "Mathematics in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on mathematics \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Mathematics",
+        "Key idea #2 in Mathematics",
+        "Key idea #3 in Mathematics"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in mathematics today?"
+      ],
+      "applications": [
+        "A real application of mathematics"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "mathematics"
+      ]
+    },
+    {
+      "id": "mathematics-the-future-of-mathematics",
+      "categoryId": "mathematics",
+      "title": "The Future of Mathematics",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on mathematics \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Mathematics",
+        "Key idea #2 in Mathematics",
+        "Key idea #3 in Mathematics"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in mathematics today?"
+      ],
+      "applications": [
+        "A real application of mathematics"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "mathematics"
+      ]
+    },
+    {
+      "id": "mathematics-a-common-misconception-in-mathematics",
+      "categoryId": "mathematics",
+      "title": "A Common Misconception in Mathematics",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on mathematics \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Mathematics",
+        "Key idea #2 in Mathematics",
+        "Key idea #3 in Mathematics"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in mathematics today?"
+      ],
+      "applications": [
+        "A real application of mathematics"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "mathematics"
+      ]
+    },
+    {
+      "id": "technology-core-principles-of-technology",
+      "categoryId": "technology",
+      "title": "Core Principles of Technology",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on technology \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Technology",
+        "Key idea #2 in Technology",
+        "Key idea #3 in Technology"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in technology today?"
+      ],
+      "applications": [
+        "A real application of technology"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "technology"
+      ]
+    },
+    {
+      "id": "technology-a-turning-point-in-technology",
+      "categoryId": "technology",
+      "title": "A Turning Point in Technology",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on technology \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Technology",
+        "Key idea #2 in Technology",
+        "Key idea #3 in Technology"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in technology today?"
+      ],
+      "applications": [
+        "A real application of technology"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "technology"
+      ]
+    },
+    {
+      "id": "technology-a-controversial-debate-in-technology",
+      "categoryId": "technology",
+      "title": "A Controversial Debate in Technology",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on technology \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Technology",
+        "Key idea #2 in Technology",
+        "Key idea #3 in Technology"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in technology today?"
+      ],
+      "applications": [
+        "A real application of technology"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "technology"
+      ]
+    },
+    {
+      "id": "technology-technology-in-everyday-life",
+      "categoryId": "technology",
+      "title": "Technology in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on technology \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Technology",
+        "Key idea #2 in Technology",
+        "Key idea #3 in Technology"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in technology today?"
+      ],
+      "applications": [
+        "A real application of technology"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "technology"
+      ]
+    },
+    {
+      "id": "technology-the-future-of-technology",
+      "categoryId": "technology",
+      "title": "The Future of Technology",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on technology \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Technology",
+        "Key idea #2 in Technology",
+        "Key idea #3 in Technology"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in technology today?"
+      ],
+      "applications": [
+        "A real application of technology"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "technology"
+      ]
+    },
+    {
+      "id": "technology-a-common-misconception-in-technology",
+      "categoryId": "technology",
+      "title": "A Common Misconception in Technology",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on technology \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Technology",
+        "Key idea #2 in Technology",
+        "Key idea #3 in Technology"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in technology today?"
+      ],
+      "applications": [
+        "A real application of technology"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "technology"
+      ]
+    },
+    {
+      "id": "blockchain-core-principles-of-blockchain",
+      "categoryId": "blockchain",
+      "title": "Core Principles of Blockchain",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on blockchain \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Blockchain",
+        "Key idea #2 in Blockchain",
+        "Key idea #3 in Blockchain"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in blockchain today?"
+      ],
+      "applications": [
+        "A real application of blockchain"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "blockchain"
+      ]
+    },
+    {
+      "id": "blockchain-a-turning-point-in-blockchain",
+      "categoryId": "blockchain",
+      "title": "A Turning Point in Blockchain",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on blockchain \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Blockchain",
+        "Key idea #2 in Blockchain",
+        "Key idea #3 in Blockchain"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in blockchain today?"
+      ],
+      "applications": [
+        "A real application of blockchain"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "blockchain"
+      ]
+    },
+    {
+      "id": "blockchain-a-controversial-debate-in-blockchain",
+      "categoryId": "blockchain",
+      "title": "A Controversial Debate in Blockchain",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on blockchain \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Blockchain",
+        "Key idea #2 in Blockchain",
+        "Key idea #3 in Blockchain"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in blockchain today?"
+      ],
+      "applications": [
+        "A real application of blockchain"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "blockchain"
+      ]
+    },
+    {
+      "id": "blockchain-blockchain-in-everyday-life",
+      "categoryId": "blockchain",
+      "title": "Blockchain in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on blockchain \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Blockchain",
+        "Key idea #2 in Blockchain",
+        "Key idea #3 in Blockchain"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in blockchain today?"
+      ],
+      "applications": [
+        "A real application of blockchain"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "blockchain"
+      ]
+    },
+    {
+      "id": "blockchain-the-future-of-blockchain",
+      "categoryId": "blockchain",
+      "title": "The Future of Blockchain",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on blockchain \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Blockchain",
+        "Key idea #2 in Blockchain",
+        "Key idea #3 in Blockchain"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in blockchain today?"
+      ],
+      "applications": [
+        "A real application of blockchain"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "blockchain"
+      ]
+    },
+    {
+      "id": "blockchain-a-common-misconception-in-blockchain",
+      "categoryId": "blockchain",
+      "title": "A Common Misconception in Blockchain",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on blockchain \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Blockchain",
+        "Key idea #2 in Blockchain",
+        "Key idea #3 in Blockchain"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in blockchain today?"
+      ],
+      "applications": [
+        "A real application of blockchain"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "blockchain"
+      ]
+    },
+    {
+      "id": "cybersecurity-core-principles-of-cybersecurity",
+      "categoryId": "cybersecurity",
+      "title": "Core Principles of Cybersecurity",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on cybersecurity \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Cybersecurity",
+        "Key idea #2 in Cybersecurity",
+        "Key idea #3 in Cybersecurity"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in cybersecurity today?"
+      ],
+      "applications": [
+        "A real application of cybersecurity"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "cybersecurity"
+      ]
+    },
+    {
+      "id": "cybersecurity-a-turning-point-in-cybersecurity",
+      "categoryId": "cybersecurity",
+      "title": "A Turning Point in Cybersecurity",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on cybersecurity \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Cybersecurity",
+        "Key idea #2 in Cybersecurity",
+        "Key idea #3 in Cybersecurity"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in cybersecurity today?"
+      ],
+      "applications": [
+        "A real application of cybersecurity"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "cybersecurity"
+      ]
+    },
+    {
+      "id": "cybersecurity-a-controversial-debate-in-cybersecurity",
+      "categoryId": "cybersecurity",
+      "title": "A Controversial Debate in Cybersecurity",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on cybersecurity \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Cybersecurity",
+        "Key idea #2 in Cybersecurity",
+        "Key idea #3 in Cybersecurity"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in cybersecurity today?"
+      ],
+      "applications": [
+        "A real application of cybersecurity"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "cybersecurity"
+      ]
+    },
+    {
+      "id": "cybersecurity-cybersecurity-in-everyday-life",
+      "categoryId": "cybersecurity",
+      "title": "Cybersecurity in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on cybersecurity \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Cybersecurity",
+        "Key idea #2 in Cybersecurity",
+        "Key idea #3 in Cybersecurity"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in cybersecurity today?"
+      ],
+      "applications": [
+        "A real application of cybersecurity"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "cybersecurity"
+      ]
+    },
+    {
+      "id": "cybersecurity-the-future-of-cybersecurity",
+      "categoryId": "cybersecurity",
+      "title": "The Future of Cybersecurity",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on cybersecurity \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Cybersecurity",
+        "Key idea #2 in Cybersecurity",
+        "Key idea #3 in Cybersecurity"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in cybersecurity today?"
+      ],
+      "applications": [
+        "A real application of cybersecurity"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "cybersecurity"
+      ]
+    },
+    {
+      "id": "cybersecurity-a-common-misconception-in-cybersecurity",
+      "categoryId": "cybersecurity",
+      "title": "A Common Misconception in Cybersecurity",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on cybersecurity \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Cybersecurity",
+        "Key idea #2 in Cybersecurity",
+        "Key idea #3 in Cybersecurity"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in cybersecurity today?"
+      ],
+      "applications": [
+        "A real application of cybersecurity"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "cybersecurity"
+      ]
+    },
+    {
+      "id": "space-core-principles-of-space",
+      "categoryId": "space",
+      "title": "Core Principles of Space",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on space \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Space",
+        "Key idea #2 in Space",
+        "Key idea #3 in Space"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in space today?"
+      ],
+      "applications": [
+        "A real application of space"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "space"
+      ]
+    },
+    {
+      "id": "space-a-turning-point-in-space",
+      "categoryId": "space",
+      "title": "A Turning Point in Space",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on space \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Space",
+        "Key idea #2 in Space",
+        "Key idea #3 in Space"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in space today?"
+      ],
+      "applications": [
+        "A real application of space"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "space"
+      ]
+    },
+    {
+      "id": "space-a-controversial-debate-in-space",
+      "categoryId": "space",
+      "title": "A Controversial Debate in Space",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on space \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Space",
+        "Key idea #2 in Space",
+        "Key idea #3 in Space"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in space today?"
+      ],
+      "applications": [
+        "A real application of space"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "space"
+      ]
+    },
+    {
+      "id": "space-space-in-everyday-life",
+      "categoryId": "space",
+      "title": "Space in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on space \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Space",
+        "Key idea #2 in Space",
+        "Key idea #3 in Space"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in space today?"
+      ],
+      "applications": [
+        "A real application of space"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "space"
+      ]
+    },
+    {
+      "id": "space-the-future-of-space",
+      "categoryId": "space",
+      "title": "The Future of Space",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on space \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Space",
+        "Key idea #2 in Space",
+        "Key idea #3 in Space"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in space today?"
+      ],
+      "applications": [
+        "A real application of space"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "space"
+      ]
+    },
+    {
+      "id": "space-a-common-misconception-in-space",
+      "categoryId": "space",
+      "title": "A Common Misconception in Space",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on space \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Space",
+        "Key idea #2 in Space",
+        "Key idea #3 in Space"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in space today?"
+      ],
+      "applications": [
+        "A real application of space"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "space"
+      ]
+    },
+    {
+      "id": "climate-core-principles-of-climate-change",
+      "categoryId": "climate",
+      "title": "Core Principles of Climate Change",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on climate change \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Climate Change",
+        "Key idea #2 in Climate Change",
+        "Key idea #3 in Climate Change"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in climate change today?"
+      ],
+      "applications": [
+        "A real application of climate change"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "climate change"
+      ]
+    },
+    {
+      "id": "climate-a-turning-point-in-climate-change",
+      "categoryId": "climate",
+      "title": "A Turning Point in Climate Change",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on climate change \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Climate Change",
+        "Key idea #2 in Climate Change",
+        "Key idea #3 in Climate Change"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in climate change today?"
+      ],
+      "applications": [
+        "A real application of climate change"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "climate change"
+      ]
+    },
+    {
+      "id": "climate-a-controversial-debate-in-climate-change",
+      "categoryId": "climate",
+      "title": "A Controversial Debate in Climate Change",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on climate change \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Climate Change",
+        "Key idea #2 in Climate Change",
+        "Key idea #3 in Climate Change"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in climate change today?"
+      ],
+      "applications": [
+        "A real application of climate change"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "climate change"
+      ]
+    },
+    {
+      "id": "climate-climate-change-in-everyday-life",
+      "categoryId": "climate",
+      "title": "Climate Change in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on climate change \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Climate Change",
+        "Key idea #2 in Climate Change",
+        "Key idea #3 in Climate Change"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in climate change today?"
+      ],
+      "applications": [
+        "A real application of climate change"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "climate change"
+      ]
+    },
+    {
+      "id": "climate-the-future-of-climate-change",
+      "categoryId": "climate",
+      "title": "The Future of Climate Change",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on climate change \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Climate Change",
+        "Key idea #2 in Climate Change",
+        "Key idea #3 in Climate Change"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in climate change today?"
+      ],
+      "applications": [
+        "A real application of climate change"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "climate change"
+      ]
+    },
+    {
+      "id": "climate-a-common-misconception-in-climate-change",
+      "categoryId": "climate",
+      "title": "A Common Misconception in Climate Change",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on climate change \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Climate Change",
+        "Key idea #2 in Climate Change",
+        "Key idea #3 in Climate Change"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in climate change today?"
+      ],
+      "applications": [
+        "A real application of climate change"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "climate change"
+      ]
+    },
+    {
+      "id": "communication-core-principles-of-communication",
+      "categoryId": "communication",
+      "title": "Core Principles of Communication",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on communication \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Communication",
+        "Key idea #2 in Communication",
+        "Key idea #3 in Communication"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in communication today?"
+      ],
+      "applications": [
+        "A real application of communication"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "communication"
+      ]
+    },
+    {
+      "id": "communication-a-turning-point-in-communication",
+      "categoryId": "communication",
+      "title": "A Turning Point in Communication",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on communication \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Communication",
+        "Key idea #2 in Communication",
+        "Key idea #3 in Communication"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in communication today?"
+      ],
+      "applications": [
+        "A real application of communication"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "communication"
+      ]
+    },
+    {
+      "id": "communication-a-controversial-debate-in-communication",
+      "categoryId": "communication",
+      "title": "A Controversial Debate in Communication",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on communication \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Communication",
+        "Key idea #2 in Communication",
+        "Key idea #3 in Communication"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in communication today?"
+      ],
+      "applications": [
+        "A real application of communication"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "communication"
+      ]
+    },
+    {
+      "id": "communication-communication-in-everyday-life",
+      "categoryId": "communication",
+      "title": "Communication in Everyday Life",
+      "difficulty": "Beginner",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on communication \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Communication",
+        "Key idea #2 in Communication",
+        "Key idea #3 in Communication"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in communication today?"
+      ],
+      "applications": [
+        "A real application of communication"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "communication"
+      ]
+    },
+    {
+      "id": "communication-the-future-of-communication",
+      "categoryId": "communication",
+      "title": "The Future of Communication",
+      "difficulty": "Intermediate",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on communication \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Communication",
+        "Key idea #2 in Communication",
+        "Key idea #3 in Communication"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in communication today?"
+      ],
+      "applications": [
+        "A real application of communication"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "communication"
+      ]
+    },
+    {
+      "id": "communication-a-common-misconception-in-communication",
+      "categoryId": "communication",
+      "title": "A Common Misconception in Communication",
+      "difficulty": "Advanced",
+      "estSpeakingTime": 2,
+      "intro": "A starter prompt on communication \u2014 expand this entry with real detail in data/topics.json.",
+      "concepts": [
+        "Key idea #1 in Communication",
+        "Key idea #2 in Communication",
+        "Key idea #3 in Communication"
+      ],
+      "discussionPoints": [
+        "Discussion angle #1",
+        "Discussion angle #2",
+        "Discussion angle #3"
+      ],
+      "questions": [
+        "What is the most important open question in communication today?"
+      ],
+      "applications": [
+        "A real application of communication"
+      ],
+      "vocabulary": [
+        {
+          "word": "starter entry",
+          "definition": "placeholder content meant to be replaced"
+        }
+      ],
+      "keywords": [
+        "communication"
+      ]
+    }
+  ]
+}

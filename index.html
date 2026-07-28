@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Magniloq — Structured Speaking Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=DM+Sans:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="topbar">
+    <div class="brand"><span class="mark">SF</span> Magniloq</div>
+    <div class="topbar-stats">
+      <span>Streak <b id="stat-streak">0</b></span>
+      <span>Rolled today <b id="stat-rolled">0</b></span>
+      <span>Favourites <b id="stat-favs">0</b></span>
+    </div>
+    <button class="btn btn-ghost btn-sm" id="manage-btn">+ Add topics</button>
+  </div>
+
+  <!-- ============ HOME PAGE ============ -->
+  <section id="page-home" class="page active">
+    <div class="hero">
+      <div class="eyebrow">Daily Speaking Practice</div>
+      <h1>Speak on demand. <em>Think</em> on your feet.</h1>
+      <p>Pick your categories, roll a niche topic, and practice fluency, structure, and confidence against the clock — not grammar drills.</p>
+    </div>
+
+    <div class="section-heading">
+      <h2>Select categories</h2>
+      <span class="hint" id="cat-hint">Choose one or more — leave empty to roll from everything</span>
+    </div>
+
+    <div class="utility-row">
+      <button class="chip" id="select-all">Select all</button>
+      <button class="chip" id="clear-all">Clear</button>
+    </div>
+
+    <div class="category-grid" id="category-grid"></div>
+
+    <div class="roll-bar">
+      <span class="selection-summary" id="selection-summary"><b>All categories</b> · 0 topics in pool</span>
+      <button class="btn btn-primary" id="roll-btn">
+        <span id="roll-btn-label">Roll a topic</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ SPEAKING PAGE ============ -->
+  <section id="page-speak" class="page">
+    <div class="utility-row">
+      <button class="btn btn-ghost btn-sm" id="back-home">← Back to categories</button>
+    </div>
+
+    <div class="roll-stage" id="roll-stage">
+      <div class="reel-window">
+        <div class="reel-track"></div>
+        <div class="reel-center-frame"></div>
+      </div>
+    </div>
+
+    <div id="topic-card" class="topic-card"></div>
+
+    <div class="timer-panel">
+      <div class="timer-card">
+        <div class="label">Preparation</div>
+        <div class="timer-ring-wrap">
+          <svg viewBox="0 0 176 176" width="176" height="176">
+            <circle class="timer-ring-bg" cx="88" cy="88" r="80"></circle>
+            <circle class="timer-ring-fg" cx="88" cy="88" r="80"></circle>
+          </svg>
+          <div class="timer-time">1:00</div>
+        </div>
+        <div class="timer-controls" data-timer="prep">
+          <button class="chip" data-secs="30">30s</button>
+          <button class="chip" data-secs="60" data-active="true">1m</button>
+          <button class="chip" data-secs="120">2m</button>
+          <button class="chip" data-secs="180">3m</button>
+        </div>
+        <div class="timer-actions">
+          <button class="btn btn-ghost btn-sm" data-action="start" data-timer="prep">Start</button>
+          <button class="btn btn-ghost btn-sm" data-action="reset" data-timer="prep">Reset</button>
+        </div>
+      </div>
+
+      <div class="timer-card">
+        <div class="label">Speaking</div>
+        <div class="timer-ring-wrap">
+          <svg viewBox="0 0 176 176" width="176" height="176">
+            <circle class="timer-ring-bg" cx="88" cy="88" r="80"></circle>
+            <circle class="timer-ring-fg" cx="88" cy="88" r="80"></circle>
+          </svg>
+          <div class="timer-time">2:00</div>
+        </div>
+        <div class="timer-controls" data-timer="speak">
+          <button class="chip" data-secs="60">1m</button>
+          <button class="chip" data-secs="120" data-active="true">2m</button>
+          <button class="chip" data-secs="180">3m</button>
+          <button class="chip" data-secs="300">5m</button>
+          <button class="chip" data-secs="600">10m</button>
+        </div>
+        <div class="timer-actions">
+          <button class="btn btn-ghost btn-sm" data-action="start" data-timer="speak">Start</button>
+          <button class="btn btn-ghost btn-sm" data-action="reset" data-timer="speak">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="utility-row" style="justify-content:center">
+      <button class="btn btn-primary" id="reroll-btn">Finish → New topic</button>
+    </div>
+  </section>
+
+  <div class="footer-note">
+    <span>Magniloq — practice, not perfection.</span>
+    <span id="pool-size-note"></span>
+  </div>
+
+</div>
+
+<div class="modal-overlay" id="manage-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Add your own topics</h3>
+      <button class="btn-icon" id="modal-close">✕</button>
+    </div>
+    <div class="modal-tabs">
+      <div class="modal-tab" data-pane="add-bulk" data-active="true">Add multiple</div>
+      <div class="modal-tab" data-pane="add-topic">Add one (detailed)</div>
+      <div class="modal-tab" data-pane="add-category">New category</div>
+      <div class="modal-tab" data-pane="manage-custom">Your additions</div>
+    </div>
+    <div class="modal-body">
+
+      <form class="modal-pane active" id="pane-add-bulk" data-pane="add-bulk">
+        <div class="form-row">
+          <label>Category</label>
+          <select id="bulk-category" required></select>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row">
+            <label>Difficulty (applies to all)</label>
+            <select id="bulk-difficulty">
+              <option>Beginner</option>
+              <option selected>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>Est. speaking time (minutes)</label>
+            <input type="number" id="bulk-mins" value="2" min="1" max="15">
+          </div>
+        </div>
+        <div class="form-row">
+          <label>Subtopics — one per line</label>
+          <textarea id="bulk-lines" rows="10" placeholder="Sharpe Ratio
+Sortino Ratio :: A downside-risk-only version of the Sharpe ratio.
+Alpha vs Beta
+Drawdown Analysis"></textarea>
+          <div class="hint-sm">One title per line. Optionally add "&nbsp;:: an intro sentence" after the title — everything else can be filled in later from "Your additions".</div>
+        </div>
+        <button class="btn btn-primary" type="submit">Add all subtopics</button>
+      </form>
+
+      <form class="modal-pane" id="pane-add-topic" data-pane="add-topic">
+        <div class="form-row">
+          <label>Category</label>
+          <select id="topic-category" required></select>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row">
+            <label>Title</label>
+            <input type="text" id="topic-title" required placeholder="e.g. Sharpe Ratio">
+          </div>
+          <div class="form-row">
+            <label>Difficulty</label>
+            <select id="topic-difficulty">
+              <option>Beginner</option>
+              <option selected>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>Estimated speaking time (minutes)</label>
+          <input type="number" id="topic-mins" value="2" min="1" max="15">
+        </div>
+        <div class="form-row">
+          <label>Introduction</label>
+          <textarea id="topic-intro" required placeholder="One or two sentences framing the topic."></textarea>
+        </div>
+        <div class="form-row">
+          <label>Important concepts</label>
+          <input type="text" id="topic-concepts" placeholder="Comma-separated, e.g. Risk-adjusted return, Volatility">
+        </div>
+        <div class="form-row">
+          <label>Discussion points</label>
+          <input type="text" id="topic-points" placeholder="Comma-separated">
+        </div>
+        <div class="form-row">
+          <label>Thought-provoking questions</label>
+          <input type="text" id="topic-questions" placeholder="Comma-separated">
+        </div>
+        <div class="form-row">
+          <label>Real-world applications</label>
+          <input type="text" id="topic-applications" placeholder="Comma-separated">
+        </div>
+        <div class="form-row">
+          <label>Key vocabulary</label>
+          <input type="text" id="topic-vocab" placeholder="word: definition, word: definition">
+          <div class="hint-sm">Format: word: definition — separate pairs with commas</div>
+        </div>
+        <div class="form-row">
+          <label>Keywords</label>
+          <input type="text" id="topic-keywords" placeholder="Comma-separated">
+        </div>
+        <button class="btn btn-primary" type="submit">Add subtopic</button>
+      </form>
+
+      <form class="modal-pane" id="pane-add-category" data-pane="add-category">
+        <div class="form-row">
+          <label>Category name</label>
+          <input type="text" id="category-name" required placeholder="e.g. Game Theory">
+        </div>
+        <div class="form-row">
+          <label>Accent colour</label>
+          <div class="swatch-row" id="category-swatches">
+            <div class="swatch" data-color="blue" style="background:var(--blue)" data-active="true"></div>
+            <div class="swatch" data-color="gold" style="background:var(--gold)"></div>
+            <div class="swatch" data-color="emerald" style="background:var(--emerald)"></div>
+            <div class="swatch" data-color="purple" style="background:var(--purple)"></div>
+            <div class="swatch" data-color="navy" style="background:var(--navy)"></div>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Add category</button>
+      </form>
+
+      <div class="modal-pane" id="pane-manage-custom" data-pane="manage-custom">
+        <div class="form-row"><label>Your categories</label></div>
+        <div class="manage-list" id="custom-category-list"></div>
+        <div class="form-row" style="margin-top:18px"><label>Your subtopics</label></div>
+        <div class="manage-list" id="custom-topic-list"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

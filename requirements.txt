@@ -1,0 +1,3 @@
+# SpeakForge has no external dependencies.
+# scripts/build_topics.py and the local server both use only the Python standard library.
+# Requires: Python 3.8+

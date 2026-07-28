@@ -1,0 +1,80 @@
+/* ============================================================
+   DESIGN TOKENS — SpeakForge
+   Palette: matte black + charcoal surfaces, four accent rails
+   (electric blue / soft gold / emerald / royal purple) mapped
+   to category families so the roll always tells you what
+   domain you're in before you read a word.
+   ============================================================ */
+:root {
+  /* Base */
+  --bg: #0a0b0d;
+  --surface: #131519;
+  --surface-2: #1a1d22;
+  --border: #262a31;
+  --border-soft: #1e2126;
+
+  /* Text */
+  --text-primary: #f2f3f5;
+  --text-secondary: #a3a9b3;
+  --text-muted: #6b7280;
+
+  /* Accents (category families) */
+  --blue: #3b82f6;
+  --blue-dim: #1d3a63;
+  --gold: #d9b46a;
+  --gold-dim: #4a3f26;
+  --emerald: #22c55e;
+  --emerald-dim: #163c26;
+  --purple: #a78bfa;
+  --purple-dim: #35275f;
+  --navy: #5b8def;
+  --navy-dim: #1d2c4a;
+
+  /* Fonts */
+  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "DM Sans", monospace;
+
+  /* Radius / shadow */
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+  --shadow-soft: 0 8px 30px rgba(0,0,0,0.35);
+  --shadow-glow-blue: 0 0 40px rgba(59,130,246,0.18);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(59,130,246,0.08), transparent 40%),
+    radial-gradient(circle at 85% 100%, rgba(167,139,250,0.06), transparent 40%);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--blue); color: #fff; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
