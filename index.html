@@ -9,6 +9,147 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/components.css">
+<style>
+/* ===== About page styles (additive only) ===== */
+.about-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: about-fade-in 0.35s ease;
+}
+@keyframes about-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.about-hero h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-bottom: 10px;
+  font-size: clamp(26px, 3.4vw, 36px);
+  letter-spacing: -0.02em;
+}
+.about-hero .eyebrow {
+  font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--text-muted); font-weight: 600; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.about-hero .eyebrow::before {
+  content: "";
+  width: 14px; height: 1px;
+  background: var(--accent);
+  display: inline-block;
+}
+.about-hero p {
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 720px;
+}
+.about-card {
+  border-radius: var(--radius-lg);
+  padding: 26px 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.about-card h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+.about-card p {
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  font-size: 14.5px;
+}
+.creator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.creator-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+.creator-value {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14.5px;
+}
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tag {
+  padding: 6px 13px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+.future-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+}
+.future-list li {
+  padding-left: 18px;
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+.future-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 11px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  transition: all 0.2s var(--ease);
+}
+.github-link:hover {
+  border-color: #333941;
+  transform: translateY(-1px);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.inline-link {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+.inline-link:hover {
+  text-decoration: underline;
+}
+@media (max-width: 640px) {
+  .creator-grid,
+  .contact-grid,
+  .future-list {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -21,6 +162,7 @@
       <span>Rolled today <b id="stat-rolled">0</b></span>
       <span>Favourites <b id="stat-favs">0</b></span>
     </div>
+    <button class="btn btn-ghost btn-sm" id="about-nav-btn">About</button>
     <button class="btn btn-ghost btn-sm" id="manage-btn">+ Add topics</button>
   </div>
 
@@ -28,8 +170,14 @@
   <section id="page-home" class="page active">
     <div class="hero">
       <div class="eyebrow">Daily Speaking Practice</div>
-      <h1>Speak on demand. <em>Think</em> on your feet.</h1>
-      <p>Pick your categories, roll a niche topic, and practice fluency, structure, and confidence against the clock — not grammar drills.</p>
+      <h1>Do it for your <em> LOVED </em> ones (me 😁)</h1>
+<p>Choose a category or create your own, generate a random discussion topic, and practice delivering a confident, well-structured extempore speech. Just get IELTS 8.5 bro 👊</p>    </div>
+
+    <div class="roll-bar">
+      <span class="selection-summary" id="selection-summary"><b>All categories</b> · 0 topics in pool</span>
+      <button class="btn btn-primary" id="roll-btn">
+        <span id="roll-btn-label">Roll a topic</span>
+      </button>
     </div>
 
     <div class="section-heading">
@@ -43,13 +191,6 @@
     </div>
 
     <div class="category-grid" id="category-grid"></div>
-
-    <div class="roll-bar">
-      <span class="selection-summary" id="selection-summary"><b>All categories</b> · 0 topics in pool</span>
-      <button class="btn btn-primary" id="roll-btn">
-        <span id="roll-btn-label">Roll a topic</span>
-      </button>
-    </div>
   </section>
 
   <!-- ============ SPEAKING PAGE ============ -->
@@ -115,6 +256,142 @@
     <div class="utility-row" style="justify-content:center">
       <button class="btn btn-primary" id="reroll-btn">Finish → New topic</button>
     </div>
+  </section>
+
+  <!-- ============ ABOUT PAGE ============ -->
+  <section id="page-about" class="page about-page">
+
+    <div class="utility-row">
+      <button class="btn btn-ghost btn-sm" id="about-back-home">← Back to categories</button>
+    </div>
+
+    <div class="about-hero">
+      <div class="eyebrow">About</div>
+      <h1>About the Project</h1>
+      <p><strong>Magniloq</strong> is a premium web application designed to help users improve their spoken English through structured, topic-driven speaking practice.</p>
+      <p>Instead of asking users to speak on broad or generic topics, the platform generates carefully curated niche concepts from selected categories such as Artificial Intelligence, Mathematics, Finance, Philosophy, Science, Technology, Leadership, Economics, and many more.</p>
+      <p>Each speaking session is designed to encourage critical thinking, improve vocabulary, strengthen structured communication, and build confidence while speaking under time constraints.</p>
+      <p>The application focuses on helping learners become better communicators rather than simply improving grammar. It aims to make daily English speaking practice engaging, intellectually stimulating, and highly customizable.</p>
+    </div>
+
+    <div class="about-card">
+      <h2>Why This Project?</h2>
+      <p>Many English speaking platforms repeatedly use generic discussion prompts that become predictable and boring.</p>
+      <p>This project was created to solve that problem by introducing specialized, knowledge-based speaking prompts that encourage users to learn, think, and explain complex ideas in simple language.</p>
+      <p>The goal is to develop fluency, confidence, logical thinking, and the ability to communicate technical as well as non-technical concepts effectively.</p>
+    </div>
+
+    <div class="about-card about-creator">
+      <h2>About the Creator</h2>
+      <div class="creator-grid">
+        <div>
+          <div class="creator-label">Name</div>
+          <div class="creator-value">Harsh Sharma</div>
+        </div>
+        <div>
+          <div class="creator-label">Current Status</div>
+          <div class="creator-value">Learning till my brain burst</div>
+        </div>
+      </div>
+
+      <div class="creator-label" style="margin-top:18px">Interests</div>
+      <div class="tag-row">
+        <span class="tag">Artificial Intelligence</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Deep Learning</span>
+        <span class="tag">Generative AI</span>
+        <span class="tag">Agentic AI</span>
+        <span class="tag">Large Language Models</span>
+        <span class="tag">LangGraph</span>
+        <span class="tag">AI System Design</span>
+        <span class="tag">Python</span>
+        <span class="tag">Competitive Programming</span>
+        <span class="tag">Quantitative Finance</span>
+        <span class="tag">Algorithmic Trading</span>
+        <span class="tag">Building practical AI products</span>
+      </div>
+
+      <div class="creator-label" style="margin-top:18px">About the Creator</div>
+
+      <p>
+      Harsh Sharma is a final-year Artificial Intelligence & Machine Learning undergraduate passionate about building intelligent software systems that solve meaningful real-world problems. His work spans Generative AI, Agentic AI, Large Language Models (LLMs), and full-stack AI applications, with a strong emphasis on creating scalable, practical, and impactful solutions.
+      </p>
+
+      <p>
+      Alongside AI development, he actively strengthens his foundation in Data Structures & Algorithms, Competitive Programming, and Software Engineering to build robust, high-performance systems. He enjoys transforming innovative ideas into polished products that combine modern engineering practices with cutting-edge artificial intelligence.
+      </p>
+
+      <p>
+      Beyond software development, Harsh has a deep interest in quantitative finance, algorithmic trading, and financial technology. His long-term vision is to leverage AI, mathematics, and data-driven decision-making to build technology that bridges the worlds of finance and intelligent automation.
+      </p>
+
+      <p>
+      Magniloq was created with the belief that effective communication is one of the most valuable skills anyone can develop. By combining AI-powered feedback, structured practice, curated discussion topics, and continuous performance analysis, the platform aims to help learners become more confident, articulate, and impactful speakers.
+      </p>
+
+      <p>
+      As a lifelong learner, Harsh is committed to continuously exploring emerging technologies, solving challenging engineering problems, and building products that empower people through innovation, knowledge, and intelligent software.
+      </p>
+
+    <div class="about-card">
+      <h2>Technology Stack</h2>
+      <div class="tag-row">
+        <span class="tag">Python</span>
+        <span class="tag">Streamlit</span>
+        <span class="tag">Modern UI Components</span>
+        <span class="tag">JSON-based Topic Database</span>
+        <span class="tag">Custom Timer System</span>
+        <span class="tag">Responsive Design</span>
+        <span class="tag">Modular Architecture</span>
+      </div>
+    </div>
+
+    <div class="about-card">
+      <h2>Future Vision</h2>
+      <p class="hint">Planned features — not yet implemented</p>
+      <ul class="future-list">
+        <li>AI-powered speaking feedback</li>
+        <li>Pronunciation analysis</li>
+        <li>Vocabulary tracking</li>
+        <li>Personalized topic recommendations</li>
+        <li>Daily streaks</li>
+        <li>Performance analytics</li>
+        <li>Speech recordings</li>
+        <li>AI-generated follow-up questions</li>
+        <li>Interview practice mode</li>
+        <li>IELTS and TOEFL speaking preparation</li>
+      </ul>
+    </div>
+
+    <div class="about-card">
+      <h2>GitHub</h2>
+      <a class="github-link" href="https://github.com/harsh31415926" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+          0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+          -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
+          .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+          -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0
+          1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
+          1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
+          0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8
+          c0-4.42-3.58-8-8-8Z"/>
+        </svg>
+        GitHub Profile
+      </a>
+    </div>
+
+    <div class="about-card">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div><span class="creator-label">Email</span><div class="creator-value">harsh3h3@gmail.com</div></div>
+        <div><span class="creator-label">LinkedIn</span><div class="creator-value"><a href="#" class="inline-link">https://www.linkedin.com/in/harshsharma-engineer/</a></div></div>
+        <div><span class="creator-label">Portfolio</span><div class="creator-value"><a href="#" class="inline-link">https://harsh31415926-github-io.vercel.app/
+PORTFOLIO</a></div></div>
+        <div><span class="creator-label">GitHub</span><div class="creator-value"><a href="https://github.com/harsh31415926" class="inline-link">github.com/harsh31415926</a></div></div>
+      </div>
+    </div>
+
   </section>
 
   <div class="footer-note">
@@ -255,5 +532,25 @@ Drawdown Analysis"></textarea>
 <div class="toast" id="toast"></div>
 
 <script type="module" src="js/main.js"></script>
+<script>
+// ===== About page routing (additive — does not touch main.js) =====
+document.addEventListener('DOMContentLoaded', () => {
+  const aboutBtn = document.getElementById('about-nav-btn');
+  const aboutBackBtn = document.getElementById('about-back-home');
+
+  function showPage(targetId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById(targetId);
+    if (target) target.classList.add('active');
+  }
+
+  if (aboutBtn) {
+    aboutBtn.addEventListener('click', () => showPage('page-about'));
+  }
+  if (aboutBackBtn) {
+    aboutBackBtn.addEventListener('click', () => showPage('page-home'));
+  }
+});
+</script>
 </body>
 </html>
