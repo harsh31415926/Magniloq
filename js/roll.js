@@ -30,7 +30,7 @@ export function spinReel(stage, pool, target) {
     const track = stage.querySelector(".reel-track");
     const win = stage.querySelector(".reel-window");
     const ITEM_H = win.clientHeight / 3 || 68;
-    const REEL_LENGTH = 42; // how many titles fly past before landing
+    const REEL_LENGTH = 100; // how many titles fly past before landing
 
     const titles = pool.length ? pool.map(t => t.title) : [target.title];
     const strip = [];
@@ -50,7 +50,7 @@ export function spinReel(stage, pool, target) {
 
     const finalOffset = -(ITEM_H * (strip.length - 1)) + ITEM_H; // center the last item in the 3-row window
     requestAnimationFrame(() => {
-      track.style.transition = "transform 3.5s cubic-bezier(0.1, 0.65, 0.1, 1)";
+      track.style.transition = "transform 7s cubic-bezier(0.1, 0.65, 0.1, 1)";
       track.style.transform = `translateY(${finalOffset}px)`;
     });
 

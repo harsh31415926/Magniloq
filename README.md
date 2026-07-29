@@ -1,4 +1,4 @@
-# SpeakForge
+# Magniloq
 
 Structured, topic-driven spoken English practice. Pick categories → Roll a niche subtopic → Prep → Speak against the clock.
 
@@ -7,7 +7,7 @@ Structured, topic-driven spoken English practice. Pick categories → Roll a nic
 No build step. It's static HTML/CSS/JS that fetches `data/topics.json`.
 
 ```bash
-cd speakforge
+cd Magniloq
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
