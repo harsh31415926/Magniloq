@@ -67,8 +67,10 @@ function refreshEverything() {
 async function doRoll() {
   const stage = $("#roll-stage");
   const pool = selectedTopics();
+  const cyclesBefore = state.completedCycles;
   const topic = pickTopic();
   if (!topic) { showToast("No topics available for this selection."); return; }
+  if (state.completedCycles > cyclesBefore) showToast("All topics completed. Starting a fresh cycle.");
 
   goTo(pageSpeak);
   await spinReel(stage, pool.length ? pool : state.topics, topic);

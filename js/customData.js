@@ -4,11 +4,12 @@
  * no editing of topics.json or app code required. Stored in the browser's
  * localStorage and merged with the base dataset on load.
  */
-const KEY = "speakforge_custom_v1";
+const LEGACY_KEY = "speakforge_custom_v1";
+const KEY = "magniloq_custom_v1";
 
 function read() {
   try {
-    const raw = localStorage.getItem(KEY);
+    const raw = localStorage.getItem(KEY) || localStorage.getItem(LEGACY_KEY);
     return raw ? JSON.parse(raw) : { categories: [], topics: [] };
   } catch {
     return { categories: [], topics: [] };
@@ -17,6 +18,7 @@ function read() {
 
 function write(data) {
   localStorage.setItem(KEY, JSON.stringify(data));
+  localStorage.removeItem(LEGACY_KEY);
 }
 
 export function loadCustom() {

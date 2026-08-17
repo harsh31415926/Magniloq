@@ -1,56 +1,74 @@
 /**
  * roll.js
- * Picks a random subtopic from the currently selected categories, then
- * plays a real slot-machine style reel through actual candidate titles
- * before landing on the chosen one.
+ * Picks one unused subtopic from the currently selected categories, then
+ * plays a slot-machine style reel through actual candidate titles before
+ * landing on the chosen one.
  */
-import { state, selectedTopics } from "./state.js";
+import { state, selectedTopics, syncUnusedPool } from "./state.js";
 
 export function pickTopic() {
   const pool = selectedTopics();
   if (pool.length === 0) return null;
 
-  let candidates = pool.filter(t => !state.history.includes(t.id));
+  syncUnusedPool(pool);
+  let candidates = pool.filter(t => !state.usedTopicIds.has(t.id));
+
   if (candidates.length === 0) {
-    state.history = []; // pool exhausted — reshuffle
+    state.completedCycles += 1;
+    state.usedTopicIds = new Set();
     candidates = pool;
   }
+
   const topic = candidates[Math.floor(Math.random() * candidates.length)];
+  state.usedTopicIds.add(topic.id);
   state.history.push(topic.id);
   state.lastRolledTopic = topic;
   return topic;
 }
 
+export function remainingTopicCount() {
+  const pool = selectedTopics();
+  syncUnusedPool(pool);
+  return pool.filter(t => !state.usedTopicIds.has(t.id)).length;
+}
+
 /**
- * Spins a vertical reel of real topic titles (sampled from `pool`) and
- * settles on `target`. Resolves once the reel has fully stopped.
+ * Spins a vertical reel of real topic titles sampled from the current visual
+ * pool and settles on target. Intermediate topics are only animation frames;
+ * they are not marked used. Only pickTopic() consumes the final topic.
  */
 export function spinReel(stage, pool, target) {
   return new Promise(resolve => {
     const track = stage.querySelector(".reel-track");
     const win = stage.querySelector(".reel-window");
-    const ITEM_H = win.clientHeight / 3 || 68;
-    const REEL_LENGTH = 100; // how many titles fly past before landing
+    const ITEM_H = win.clientHeight || 260;
+    const REEL_LENGTH = 76;
 
-    const titles = pool.length ? pool.map(t => t.title) : [target.title];
+    const topics = pool.length ? pool : [target];
     const strip = [];
     for (let i = 0; i < REEL_LENGTH - 1; i++) {
-      strip.push(titles[Math.floor(Math.random() * titles.length)]);
+      strip.push(topics[Math.floor(Math.random() * topics.length)]);
     }
-    strip.push(target.title); // final, centered item
+    strip.push(target);
 
-    track.innerHTML = strip.map((title, i) =>
-      `<div class="reel-item${i === strip.length - 1 ? " reel-item-final" : ""}" style="height:${ITEM_H}px;line-height:${ITEM_H}px">${title}</div>`
-    ).join("");
+    track.innerHTML = strip.map((topic, i) => {
+      const category = categoryName(topic.categoryId);
+      const acronym = acronymFromTitle(topic.title);
+      return `<div class="reel-item${i === strip.length - 1 ? " reel-item-final" : ""}" style="height:${ITEM_H}px">
+        <span class="reel-category">${escapeHtml(category)}</span>
+        <span class="reel-title">${escapeHtml(topic.title)}</span>
+        ${acronym ? `<span class="reel-acronym">(${escapeHtml(acronym)})</span>` : ""}
+      </div>`;
+    }).join("");
 
     stage.classList.add("spinning");
     track.style.transition = "none";
     track.style.transform = `translateY(${ITEM_H}px)`;
-    void track.offsetHeight; // force reflow so the transition below animates from here
+    void track.offsetHeight;
 
-    const finalOffset = -(ITEM_H * (strip.length - 1)) + ITEM_H; // center the last item in the 3-row window
+    const finalOffset = -(ITEM_H * (strip.length - 1));
     requestAnimationFrame(() => {
-      track.style.transition = "transform 7s cubic-bezier(0.1, 0.65, 0.1, 1)";
+      track.style.transition = "transform 4s cubic-bezier(0.08, 0.72, 0.08, 1)";
       track.style.transform = `translateY(${finalOffset}px)`;
     });
 
@@ -61,4 +79,22 @@ export function spinReel(stage, pool, target) {
     };
     track.addEventListener("transitionend", onEnd);
   });
+}
+
+function categoryName(id) {
+  return state.categories.find(category => category.id === id)?.name || id || "Selected Topic";
+}
+
+function acronymFromTitle(title) {
+  const match = String(title || "").match(/\(([A-Z0-9]{2,})\)/);
+  return match ? match[1] : "";
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"]/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+  }[char]));
 }

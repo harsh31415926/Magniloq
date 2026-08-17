@@ -1,7 +1,7 @@
 """
 build_topics.py
 ----------------
-Generates data/topics.json for SpeakForge.
+Generates data/topics.json for Magniloq.
 
 This is the ONLY place topic content is authored in Python form; the app
 itself never imports this file — it only reads the generated JSON.
