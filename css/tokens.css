@@ -1,28 +1,33 @@
 /* ============================================================
    DESIGN TOKENS — Magniloq
-   Bright premium identity for an intellectual speaking-practice
-   platform. A warm ivory canvas, deep charcoal typography, and
-   one confident electric-orange accent carry the interface.
+   Light editorial identity for an intellectual speaking-practice
+   platform. Warm white, soft aqua, mint, and lavender create a
+   bright human feel without leaning into dark AI dashboard tropes.
    ============================================================ */
 :root {
   /* Base surfaces */
-  --bg: #f8f3ea;
-  --surface: #fffdf8;
-  --surface-2: #f2eadf;
-  --surface-3: #ebe0d3;
-  --border: #ded2c2;
-  --border-soft: #ece2d6;
+  --bg: #fbf8ef;
+  --surface: #fffef9;
+  --surface-2: #f4fbf8;
+  --surface-3: #edf6fb;
+  --border: #d9e7e3;
+  --border-soft: #e8eee8;
 
   /* Text */
-  --text-primary: #171512;
-  --text-secondary: #5f5b55;
-  --text-muted: #8f877c;
+  --text-primary: #171814;
+  --text-secondary: #59615d;
+  --text-muted: #8a9691;
 
-  /* Single premium accent — electric orange */
-  --accent: #f26a21;
-  --accent-strong: #d94f0d;
-  --accent-dim: #ffe1ca;
-  --accent-soft: rgba(242, 106, 33, 0.14);
+  /* Fresh light-theme accent */
+  --accent: #19b8bf;
+  --accent-strong: #078d98;
+  --accent-dim: #d9f7f3;
+  --accent-soft: rgba(25, 184, 191, 0.14);
+  --accent-warm: #f26a21;
+  --mint-soft: #e6f8ec;
+  --lavender-soft: #f0edff;
+  --sky-soft: #e6f4ff;
+  --peach-soft: #fff1e7;
 
   /* Category identification family: quiet, legible on light */
   --blue: #315fd5;
@@ -45,9 +50,9 @@
   --radius-lg: 22px;
   --radius-md: 16px;
   --radius-sm: 10px;
-  --shadow-soft: 0 18px 48px rgba(60, 43, 25, 0.12);
-  --shadow-lift: 0 8px 24px rgba(60, 43, 25, 0.10);
-  --shadow-glow-accent: 0 0 0 1px rgba(242,106,33,0.22), 0 14px 34px rgba(242,106,33,0.18);
+  --shadow-soft: 0 18px 48px rgba(40, 88, 84, 0.10);
+  --shadow-lift: 0 8px 24px rgba(40, 88, 84, 0.09);
+  --shadow-glow-accent: 0 0 0 1px rgba(25,184,191,0.20), 0 14px 34px rgba(25,184,191,0.20);
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -58,9 +63,11 @@ body {
   margin: 0;
   background: var(--bg);
   background-image:
-    radial-gradient(circle at 12% -10%, rgba(242,106,33,0.16), transparent 34%),
-    radial-gradient(circle at 92% 4%, rgba(49,95,213,0.10), transparent 34%),
-    linear-gradient(180deg, #fffaf2 0%, #f8f3ea 48%, #f4ece0 100%);
+    radial-gradient(circle at 12% -8%, rgba(255, 217, 183, 0.50), transparent 32%),
+    radial-gradient(circle at 86% 12%, rgba(194, 240, 239, 0.44), transparent 34%),
+    radial-gradient(circle at 70% 48%, rgba(234, 229, 255, 0.50), transparent 32%),
+    linear-gradient(180deg, #fffaf3 0%, #f7fcf9 44%, #f5f7ff 100%);
+  background-attachment: fixed;
   background-repeat: no-repeat;
   color: var(--text-primary);
   font-family: var(--font-body);
@@ -71,8 +78,8 @@ body {
 ::selection { background: var(--accent); color: #fff; }
 
 ::-webkit-scrollbar { width: 9px; }
-::-webkit-scrollbar-thumb { background: #cfbeaa; border-radius: 999px; }
-::-webkit-scrollbar-track { background: #f4eadc; }
+::-webkit-scrollbar-thumb { background: #b8d9d5; border-radius: 999px; }
+::-webkit-scrollbar-track { background: #f3f7f2; }
 
 a { color: inherit; }
 
