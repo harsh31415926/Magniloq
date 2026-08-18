@@ -8,6 +8,8 @@ export const state = {
   categories: [],
   topics: [],
   selectedCategoryIds: new Set(),
+  expandedCategoryIds: new Set(),
+  ownerUnlocked: false,
   history: [],          // topic ids already rolled this session
   usedTopicIds: new Set(),
   activePoolSignature: "",

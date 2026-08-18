@@ -10,14 +10,14 @@ const KEY = "magniloq_custom_v1";
 function read() {
   try {
     const raw = localStorage.getItem(KEY) || localStorage.getItem(LEGACY_KEY);
-    return raw ? JSON.parse(raw) : { categories: [], topics: [] };
+    return normalize(raw ? JSON.parse(raw) : {});
   } catch {
-    return { categories: [], topics: [] };
+    return normalize({});
   }
 }
 
 function write(data) {
-  localStorage.setItem(KEY, JSON.stringify(data));
+  localStorage.setItem(KEY, JSON.stringify(normalize(data)));
   localStorage.removeItem(LEGACY_KEY);
 }
 
@@ -78,19 +78,41 @@ export function addCustomTopicsBulk(lines, shared) {
   return added;
 }
 
-export function deleteCustomCategory(id) {
+export function deleteCategory(id) {
   const data = read();
   data.categories = data.categories.filter(c => c.id !== id);
   data.topics = data.topics.filter(t => t.categoryId !== id);
+  if (!data.deletedCategoryIds.includes(id)) data.deletedCategoryIds.push(id);
   write(data);
 }
 
-export function deleteCustomTopic(id) {
+export function deleteTopic(id) {
   const data = read();
   data.topics = data.topics.filter(t => t.id !== id);
+  if (!data.deletedTopicIds.includes(id)) data.deletedTopicIds.push(id);
   write(data);
+}
+
+export const deleteCustomCategory = deleteCategory;
+export const deleteCustomTopic = deleteTopic;
+
+export function deletedSets() {
+  const data = read();
+  return {
+    categoryIds: new Set(data.deletedCategoryIds),
+    topicIds: new Set(data.deletedTopicIds),
+  };
 }
 
 function slug(s) {
   return s.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+function normalize(data) {
+  return {
+    categories: Array.isArray(data.categories) ? data.categories : [],
+    topics: Array.isArray(data.topics) ? data.topics : [],
+    deletedCategoryIds: Array.isArray(data.deletedCategoryIds) ? data.deletedCategoryIds : [],
+    deletedTopicIds: Array.isArray(data.deletedTopicIds) ? data.deletedTopicIds : [],
+  };
 }
