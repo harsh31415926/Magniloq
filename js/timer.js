@@ -65,6 +65,14 @@ export class RingTimer {
     this.intervalId = null;
   }
 
+  isRunning() {
+    return Boolean(this.intervalId);
+  }
+
+  elapsedSeconds() {
+    return Math.max(0, this.total - this.remaining);
+  }
+
   reset() {
     this.pause();
     this.remaining = this.total;

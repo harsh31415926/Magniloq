@@ -97,3 +97,40 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
+
+html[data-theme="dark"] {
+  --bg: #111719;
+  --surface: #171e21;
+  --surface-2: #1d282b;
+  --surface-3: #243237;
+  --border: #314246;
+  --border-soft: #263438;
+  --text-primary: #f4f7f5;
+  --text-secondary: #c1ccc8;
+  --text-muted: #879793;
+  --accent: #47d4d0;
+  --accent-strong: #8ceae0;
+  --accent-dim: #173c3f;
+  --accent-soft: rgba(71, 212, 208, 0.14);
+  --mint-soft: #18382d;
+  --lavender-soft: #28243d;
+  --sky-soft: #173241;
+  --peach-soft: #38271f;
+  --blue-dim: #1d315f;
+  --gold-dim: #3a3018;
+  --emerald-dim: #17372b;
+  --purple-dim: #2d254d;
+  --navy-dim: #1f3246;
+  --shadow-soft: 0 22px 60px rgba(0, 0, 0, 0.30);
+  --shadow-lift: 0 14px 34px rgba(0, 0, 0, 0.24);
+  --shadow-glow-accent: 0 0 0 1px rgba(71,212,208,0.18), 0 16px 38px rgba(28,168,169,0.16);
+}
+
+html[data-theme="dark"] body {
+  background-image:
+    radial-gradient(circle at 12% -8%, rgba(61, 111, 116, 0.30), transparent 32%),
+    radial-gradient(circle at 86% 12%, rgba(36, 83, 97, 0.38), transparent 34%),
+    radial-gradient(circle at 70% 48%, rgba(65, 56, 102, 0.25), transparent 32%),
+    linear-gradient(180deg, #111719 0%, #121c20 44%, #141820 100%);
+}

@@ -163,8 +163,14 @@
       <span>Rolled today <b id="stat-rolled">0</b></span>
       <span>Favourites <b id="stat-favs">0</b></span>
     </div>
-    <button class="btn btn-ghost btn-sm" id="about-nav-btn">About</button>
-    <button class="btn btn-ghost btn-sm" id="manage-btn">+ Add topics</button>
+    <div class="topbar-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <span class="theme-toggle-track"><span class="theme-toggle-thumb"></span></span>
+        <span class="theme-toggle-label">Light</span>
+      </button>
+      <button class="btn btn-ghost btn-sm" id="about-nav-btn">About</button>
+      <button class="btn btn-ghost btn-sm" id="manage-btn">+ Add topics</button>
+    </div>
   </div>
 
   <!-- ============ HOME PAGE ============ -->
@@ -174,11 +180,16 @@
       <h1>Do it for your <em> LOVED </em> ones (me 😁)</h1>
 <p>Choose a category or create your own, generate a random discussion topic, and practice delivering a confident, well-structured extempore speech. Just get IELTS 8.5 bro 👊</p>    </div>
 
+    <div class="insight-grid home-insights" id="home-insights"></div>
+
     <div class="roll-bar">
       <span class="selection-summary" id="selection-summary"><b>All categories</b> · 0 topics in pool</span>
-      <button class="btn btn-primary" id="roll-btn">
-        <span id="roll-btn-label">Roll a topic</span>
-      </button>
+      <div class="roll-actions">
+        <button class="btn btn-ghost" id="surprise-btn" type="button">Surprise Me</button>
+        <button class="btn btn-primary" id="roll-btn">
+          <span id="roll-btn-label">Roll a topic</span>
+        </button>
+      </div>
     </div>
 
     <div class="section-heading">
@@ -206,6 +217,8 @@
         <div class="reel-center-frame"></div>
       </div>
     </div>
+
+    <div class="challenge-strip" id="challenge-strip"></div>
 
     <div class="timer-panel">
       <div class="timer-card">
@@ -253,6 +266,11 @@
     </div>
 
     <div id="topic-card" class="topic-card"></div>
+
+    <div class="topic-extras">
+      <div class="deeper-panel" id="deeper-panel"></div>
+      <div class="session-summary" id="session-summary"></div>
+    </div>
 
     <div class="utility-row" style="justify-content:center">
       <button class="btn btn-primary" id="reroll-btn">Finish → New topic</button>
