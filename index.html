@@ -267,9 +267,39 @@
 
     <div id="topic-card" class="topic-card"></div>
 
+    <!-- NEW VIDEO RECORDING SECTION -->
+    <div class="recorder-panel hidden" id="recorder-panel">
+      <div class="recorder-header">
+        <h3 id="recorder-topic-title">Video Recording</h3>
+        <p class="privacy-note">🔒 Your recording stays on your device</p>
+      </div>
+      <div class="recorder-body">
+        <div class="recorder-preview-container">
+          <video id="recorder-video" playsinline muted></video>
+          <div class="recorder-indicator" id="recorder-indicator">● Recording <span id="recorder-time">00:00</span></div>
+        </div>
+        <div class="recorder-controls" id="recorder-controls-before">
+          <button class="btn btn-primary" id="btn-start-record">🎥 Start Recording</button>
+        </div>
+        <div class="recorder-controls hidden" id="recorder-controls-recording">
+          <button class="btn btn-ghost" id="btn-pause-record">⏸ Pause</button>
+          <button class="btn btn-ghost hidden" id="btn-resume-record">▶ Resume</button>
+          <button class="btn btn-primary" id="btn-stop-record">⏹ Stop Recording</button>
+        </div>
+        <div class="recorder-controls hidden" id="recorder-controls-after">
+          <button class="btn btn-ghost" id="btn-replay-record">▶ Replay</button>
+          <button class="btn btn-ghost" id="btn-retake-record">🔄 Re-record</button>
+          <button class="btn btn-primary" id="btn-download-record">💾 Save Recording</button>
+        </div>
+        <div id="recorder-error" class="hidden"></div>
+        <div id="recorder-success" class="hidden"></div>
+      </div>
+    </div>
+
     <div class="topic-extras">
       <div class="deeper-panel" id="deeper-panel"></div>
       <div class="session-summary" id="session-summary"></div>
+      <div class="recording-history" id="recording-history"></div>
     </div>
 
     <div class="utility-row" style="justify-content:center">

@@ -5,8 +5,10 @@ import { pickTopic, spinReel } from "./roll.js";
 import { RingTimer, playChime } from "./timer.js";
 import { renderTopic } from "./topicView.js";
 import { loadCustom, addCustomCategory, addCustomTopic, addCustomTopicsBulk, deleteCustomCategory, deleteCustomTopic } from "./customData.js";
+import { VideoRecorder } from "./recorder.js";
 
 const $ = sel => document.querySelector(sel);
+let videoRecorder;
 const catGrid = $("#category-grid");
 const pageHome = $("#page-home");
 const pageSpeak = $("#page-speak");
@@ -127,6 +129,9 @@ function goTo(pageEl) {
   pageSpeak.classList.remove("active");
   pageEl.classList.add("active");
   window.scrollTo({ top: 0, behavior: "smooth" });
+  if (pageEl === pageHome && videoRecorder) {
+    videoRecorder.hidePanel();
+  }
 }
 
 function categoryName(id) {
@@ -292,6 +297,74 @@ function renderSessionSummary() {
   `;
 }
 
+function renderRecordingHistory() {
+  const box = $("#recording-history");
+  if (!box) return;
+  
+  if (!videoRecorder) {
+    box.innerHTML = "";
+    return;
+  }
+  
+  const history = videoRecorder.getRecordingHistory();
+  
+  if (history.length === 0) {
+    box.innerHTML = `
+      <h3>Recent Recordings</h3>
+      <div class="empty-history">No recordings yet. Start practicing to see your history here.</div>
+    `;
+    return;
+  }
+  
+  box.innerHTML = `
+    <h3>Recent Recordings</h3>
+    <div class="recording-list">
+      ${history.map((item, index) => `
+        <div class="recording-item">
+          <div class="recording-info">
+            <div class="recording-topic">${escapeHtml(item.topic)}</div>
+            <div class="recording-meta">
+              ${formatDate(item.date)} • ${formatTime(item.time)}
+              <span class="recording-duration">${formatDuration(item.duration)}</span>
+            </div>
+          </div>
+          <div class="recording-actions">
+            <button class="btn btn-ghost btn-sm" onclick="playRecording(${index})" title="Play recording">▶</button>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function formatDate(dateStr) {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+function formatTime(timeStr) {
+  const [hours, minutes] = timeStr.split('-').map(Number);
+  const date = new Date();
+  date.setHours(hours, minutes);
+  return date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+}
+
+function formatDuration(seconds) {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+// Make this available globally for the onclick handler
+window.playRecording = function(index) {
+  const history = videoRecorder.getRecordingHistory();
+  if (history && history[index]) {
+    showToast(`Recording: ${history[index].topic}`);
+    // Note: Actual video files are local and not accessible after page refresh
+    // This is a placeholder for future enhancement with IndexedDB
+  }
+};
+
 async function renderSelectedTopic(topic, animate = true) {
   if (!topic) return;
   goTo(pageSpeak);
@@ -309,8 +382,10 @@ async function renderSelectedTopic(topic, animate = true) {
   renderCurrentTopic();
   renderDeeperPanel(topic);
   renderSessionSummary();
+  renderRecordingHistory();
   prepTimer.setTotal(state.prepSeconds);
   speakTimer.setTotal(state.speakSeconds);
+  if (videoRecorder) videoRecorder.showPanel(topic.title);
 }
 
 async function doRoll({ surprise = false } = {}) {
@@ -601,6 +676,8 @@ async function init() {
   $("#surprise-btn").addEventListener("click", async () => { await doRoll({ surprise: true }); });
   $("#reroll-btn").addEventListener("click", async () => { await doRoll(); });
   $("#back-home").addEventListener("click", () => goTo(pageHome));
+
+  videoRecorder = new VideoRecorder();
 
   const [prepCard, speakCard] = document.querySelectorAll(".timer-card");
   prepTimer = new RingTimer(prepCard, state.prepSeconds, null, () => {
