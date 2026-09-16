@@ -8,7 +8,7 @@ import { countByCategory } from "./dataLoader.js";
 const ACCENT_VARS = { blue: "--blue", gold: "--gold", emerald: "--emerald", purple: "--purple", navy: "--navy" };
 
 function checkIcon() {
-  return `<svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4.5L4 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  return `<span class="check-mark">✓</span>`;
 }
 
 export function renderCategoryGrid(container, onChange, onDelete) {

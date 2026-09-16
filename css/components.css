@@ -31,8 +31,20 @@
   background: linear-gradient(135deg, var(--accent), #78dec9);
   border-color: var(--accent);
 }
-.cat-card .check svg { opacity: 0; transform: scale(0.6); transition: all 0.15s var(--ease); }
-.cat-card[data-checked="true"] .check svg { opacity: 1; transform: scale(1); }
+.cat-card .check .check-mark {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.15s var(--ease);
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  line-height: 1;
+}
+.cat-card[data-checked="true"] .check .check-mark {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  color: white;
+}
 .cat-card .cat-name {
   font-family: var(--font-display);
   font-weight: 800; font-size: 14.5px; letter-spacing: -0.01em;
@@ -679,6 +691,13 @@ html[data-theme="dark"] .cat-card:hover { background: rgba(29,40,43,0.92); borde
 html[data-theme="dark"] .cat-card[data-checked="true"] {
   background: linear-gradient(180deg, rgba(28,78,80,0.52), rgba(23,30,33,0.90));
   border-color: rgba(71,212,208,0.45);
+}
+html[data-theme="dark"] .cat-card[data-checked="true"] .check {
+  background: linear-gradient(135deg, #24bebd, #75d8cf);
+  border-color: #47d4d0;
+}
+html[data-theme="dark"] .cat-card[data-checked="true"] .check .check-mark {
+  color: #071719;
 }
 html[data-theme="dark"] .roll-stage {
   background:
