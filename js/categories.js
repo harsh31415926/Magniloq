@@ -7,8 +7,8 @@ import { countByCategory } from "./dataLoader.js";
 
 const ACCENT_VARS = { blue: "--blue", gold: "--gold", emerald: "--emerald", purple: "--purple", navy: "--navy" };
 
-function checkIcon() {
-  return `<span class="check-mark">✓</span>`;
+function checkIcon(checked) {
+  return checked ? `<span class="check-mark">✓</span>` : '';
 }
 
 export function renderCategoryGrid(container, onChange, onDelete) {
@@ -28,12 +28,13 @@ export function renderCategoryGrid(container, onChange, onDelete) {
     card.tabIndex = 0;
     card.setAttribute("role", "checkbox");
     card.setAttribute("aria-checked", String(checked));
+    card.dataset.categoryId = cat.id;
     card.dataset.checked = String(checked);
     card.dataset.expanded = String(expanded);
     card.style.setProperty("--accent", `var(${ACCENT_VARS[cat.color] || "--blue"})`);
     card.innerHTML = `
       ${cat.custom ? '<span class="custom-dot">Yours</span>' : ""}
-      <div class="check">${checkIcon()}</div>
+      <div class="check" aria-hidden="true">${checkIcon(checked)}</div>
       <div class="cat-card-head">
         <div>
           <div class="cat-name">${escapeHtml(cat.name)}</div>
@@ -54,6 +55,16 @@ export function renderCategoryGrid(container, onChange, onDelete) {
       toggleCategory(cat.id);
       if (state.selectedCategoryIds.has(cat.id)) state.expandedCategoryIds.add(cat.id);
       else state.expandedCategoryIds.delete(cat.id);
+
+      const newChecked = state.selectedCategoryIds.has(cat.id);
+      card.dataset.checked = String(newChecked);
+      card.setAttribute("aria-checked", String(newChecked));
+
+      const checkDiv = card.querySelector('.check');
+      if (checkDiv) {
+        checkDiv.innerHTML = checkIcon(newChecked);
+      }
+
       onChange();
     };
 
@@ -88,9 +99,18 @@ export function selectAll(container, on) {
     }
   }
   for (const card of container.children) {
-    card.dataset.checked = String(on);
-    card.dataset.expanded = String(on);
-    card.setAttribute("aria-checked", String(on));
+    const checked = state.selectedCategoryIds.has(card.dataset.categoryId);
+    const expanded = state.expandedCategoryIds.has(card.dataset.categoryId);
+
+    card.dataset.checked = String(checked);
+    card.dataset.expanded = String(expanded);
+    card.setAttribute("aria-checked", String(checked));
+
+    // Update the checkmark
+    const checkDiv = card.querySelector('.check');
+    if (checkDiv) {
+      checkDiv.innerHTML = checkIcon(checked);
+    }
   }
 }
 

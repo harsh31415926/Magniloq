@@ -14,43 +14,54 @@
   user-select: none;
 }
 .cat-card:hover { transform: translateY(-2px); border-color: #9ed8d3; background: linear-gradient(180deg, #ffffff, var(--surface-2)); box-shadow: var(--shadow-lift); }
+.cat-card[data-checked="true"]:hover { transform: translateY(-3px); border-color: var(--accent-strong); box-shadow: 0 0 0 2px rgba(25,184,191,0.18), 0 12px 28px rgba(40,88,84,0.14); }
 .cat-card[data-checked="true"] {
-  border-color: rgba(25,184,191,0.56);
-  background: linear-gradient(180deg, rgba(217,247,243,0.82), rgba(255,254,249,0.90));
-  box-shadow: 0 0 0 1px rgba(25,184,191,0.18) inset, 0 14px 30px rgba(40,88,84,0.10);
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(217,247,243,0.68), rgba(255,254,249,0.96));
+  box-shadow: 0 0 0 2px rgba(25,184,191,0.16), 0 10px 26px rgba(40,88,84,0.12);
 }
 .cat-card .check {
-  width: 18px; height: 18px;
-  border-radius: 6px;
-  border: 1.5px solid var(--border);
+  width: 24px; height: 24px;
+  border-radius: 7px;
+  border: 2px solid var(--border);
   display: grid; place-items: center;
-  margin-bottom: 13px;
-  transition: all 0.2s var(--ease);
+  margin-bottom: 14px;
+  transition: background 0.22s var(--ease), border-color 0.22s var(--ease), box-shadow 0.22s var(--ease), transform 0.22s var(--ease);
+  background: var(--surface-2);
 }
 .cat-card[data-checked="true"] .check {
-  background: linear-gradient(135deg, var(--accent), #78dec9);
-  border-color: var(--accent);
+  background: linear-gradient(135deg, var(--accent), #58d9c8);
+  border-color: var(--accent-strong);
+  box-shadow: 0 4px 12px rgba(25,184,191,0.24);
+  transform: scale(1.05);
 }
 .cat-card .check .check-mark {
-  opacity: 0;
-  transform: scale(0.6);
-  transition: all 0.15s var(--ease);
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 900;
   color: white;
   line-height: 1;
+  user-select: none;
+  animation: checkmark-pop 0.3s var(--ease);
 }
-.cat-card[data-checked="true"] .check .check-mark {
-  opacity: 1 !important;
-  transform: scale(1) !important;
-  color: white;
+@keyframes checkmark-pop {
+  0% { transform: scale(0.4); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
 }
 .cat-card .cat-name {
   font-family: var(--font-display);
   font-weight: 800; font-size: 14.5px; letter-spacing: -0.01em;
   margin-bottom: 4px;
+  transition: color 0.2s var(--ease);
 }
-.cat-card .cat-count { font-size: 12px; color: var(--text-muted); font-family: var(--font-mono); }
+.cat-card[data-checked="true"] .cat-name {
+  color: var(--accent-strong);
+}
+.cat-card .cat-count { font-size: 12px; color: var(--text-muted); font-family: var(--font-mono); transition: color 0.2s var(--ease); }
+.cat-card[data-checked="true"] .cat-count {
+  color: var(--accent);
+  font-weight: 600;
+}
 .cat-card .subtopic-list { display: none; }
 
 /* --- Buttons --- */
@@ -689,15 +700,27 @@ html[data-theme="dark"] .github-link:hover {
 }
 html[data-theme="dark"] .cat-card:hover { background: rgba(29,40,43,0.92); border-color: rgba(116,181,180,0.42); }
 html[data-theme="dark"] .cat-card[data-checked="true"] {
-  background: linear-gradient(180deg, rgba(28,78,80,0.52), rgba(23,30,33,0.90));
-  border-color: rgba(71,212,208,0.45);
+  background: linear-gradient(180deg, rgba(28,78,80,0.85), rgba(23,30,33,0.95));
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 0 2px rgba(71,212,208,0.18), 0 14px 30px rgba(0,0,0,0.28);
+}
+html[data-theme="dark"] .cat-card[data-checked="true"]:hover {
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 0 2px rgba(71,212,208,0.24), 0 16px 34px rgba(0,0,0,0.34);
 }
 html[data-theme="dark"] .cat-card[data-checked="true"] .check {
   background: linear-gradient(135deg, #24bebd, #75d8cf);
   border-color: #47d4d0;
+  box-shadow: 0 4px 14px rgba(71,212,208,0.28);
 }
 html[data-theme="dark"] .cat-card[data-checked="true"] .check .check-mark {
   color: #071719;
+}
+html[data-theme="dark"] .cat-card[data-checked="true"] .cat-name {
+  color: var(--accent-strong);
+}
+html[data-theme="dark"] .cat-card[data-checked="true"] .cat-count {
+  color: var(--accent);
 }
 html[data-theme="dark"] .roll-stage {
   background:
@@ -955,4 +978,3 @@ html[data-theme="dark"] #recorder-success {
     font-size: 11px;
   }
 }
-
