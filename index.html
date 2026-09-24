@@ -11,145 +11,69 @@
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/components.css">
 <style>
-/* ===== About page styles (additive only) ===== */
-.about-page {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  animation: about-fade-in 0.35s ease;
+/* ===== About page: editorial identity layer ===== */
+.about-page { display: none; animation: about-fade-in 0.45s var(--ease); }
+.about-page.active { display: block; }
+@keyframes about-fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.about-page > .utility-row { margin-bottom: 28px; }
+.about-hero { position: relative; padding: 34px 0 62px; border-bottom: 1px solid var(--border-soft); overflow: hidden; }
+.about-hero::after { content: "∑ curiosity → clarity"; position: absolute; right: 0; bottom: 28px; color: var(--text-muted); font: 600 11px var(--font-mono); letter-spacing: .08em; opacity: .7; }
+.about-kicker, .about-hero .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; color: var(--accent-strong); font-size: 11px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+.about-kicker::before, .about-hero .eyebrow::before { content: ""; width: 26px; height: 1px; background: linear-gradient(90deg, var(--accent), transparent); }
+.about-hero h1 { max-width: 760px; margin: 0 0 22px; font: 800 clamp(42px, 7vw, 82px)/.94 var(--font-display); letter-spacing: -.065em; }
+.about-hero h1 em { color: var(--accent-strong); font-style: normal; }
+.about-hero .hero-deck { max-width: 650px; margin: 0; color: var(--text-secondary); font-size: clamp(16px, 1.7vw, 20px); line-height: 1.65; }
+.about-hero .hero-note { margin-top: 22px; color: var(--text-muted); font-size: 12px; letter-spacing: .04em; }
+.about-scroll-cue { display: inline-flex; gap: 10px; align-items: center; margin-top: 38px; color: var(--text-muted); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+.about-scroll-cue::after { content: "↓"; color: var(--accent); font-size: 17px; }
+.about-section { display: grid; grid-template-columns: minmax(150px, .34fr) minmax(0, 1fr); gap: clamp(24px, 6vw, 92px); padding: 68px 0; border-bottom: 1px solid var(--border-soft); }
+.about-section-label { color: var(--text-muted); font: 700 11px/1.5 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.about-section-label strong { display: block; margin-top: 8px; color: var(--accent); font: 800 27px var(--font-display); letter-spacing: -.04em; }
+.about-copy { max-width: 760px; }
+.about-copy h2 { margin: 0 0 18px; font: 750 clamp(25px, 3vw, 38px)/1.05 var(--font-display); letter-spacing: -.045em; }
+.about-copy h2 span { color: var(--accent-strong); }
+.about-copy p, .about-card p { color: var(--text-secondary); font-size: 15px; line-height: 1.78; }
+.about-copy p:last-child, .about-card p:last-child { margin-bottom: 0; }
+.about-panel { padding: 25px 28px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: color-mix(in srgb, var(--surface) 76%, transparent); box-shadow: var(--shadow-soft); }
+.about-panel:hover, .about-card:hover { border-color: color-mix(in srgb, var(--accent) 42%, var(--border)); }
+.creator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 0 0 28px; }
+.creator-label { display: block; margin-bottom: 6px; color: var(--text-muted); font-size: 10.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.creator-value { color: var(--text-primary); font-size: 15px; font-weight: 700; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { padding: 7px 12px; border-radius: 999px; color: var(--text-secondary); background: var(--surface-2); border: 1px solid var(--border); font-size: .78rem; transition: transform .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease); }
+.tag:hover { color: var(--accent-strong); border-color: var(--accent); transform: translateY(-2px); }
+.about-card { border-radius: var(--radius-lg); padding: 26px 28px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-soft); transition: border-color .2s var(--ease), transform .2s var(--ease); }
+.about-card h2 { margin: 0 0 14px; font: 700 20px var(--font-display); letter-spacing: -.025em; }
+.about-card p { margin: 0 0 13px; }
+.about-card .hint { margin-top: -4px; color: var(--text-muted); font-size: 12px; }
+.about-card .creator-label[style] { margin-top: 28px !important; }
+.about-stack { display: grid; gap: 16px; }
+.future-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 11px 24px; padding: 0; margin: 18px 0 0; }
+.future-list li { position: relative; padding-left: 18px; color: var(--text-secondary); font-size: 14px; }
+.future-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+.github-link { display: inline-flex; align-items: center; gap: 9px; padding: 11px 16px; border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); background: var(--surface-2); font-size: 14px; font-weight: 700; text-decoration: none; transition: transform .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease); }
+.github-link:hover { color: var(--accent-strong); border-color: var(--accent); transform: translateY(-2px); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 28px; }
+.inline-link { color: var(--accent-strong); text-decoration: none; overflow-wrap: anywhere; }
+.inline-link:hover { text-decoration: underline; }
+.about-signature { padding: 72px 0 38px; text-align: center; }
+.about-signature .signature-mark { color: var(--accent); font: 800 20px var(--font-mono); letter-spacing: .18em; }
+.about-signature p { max-width: 520px; margin: 16px auto 0; color: var(--text-secondary); font: 600 18px/1.5 var(--font-display); letter-spacing: -.02em; }
+.about-reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s var(--ease), transform .55s var(--ease); }
+.about-reveal.is-visible { opacity: 1; transform: none; }
+@media (max-width: 760px) {
+  .about-hero { padding: 20px 0 48px; }
+  .about-hero::after { position: static; display: block; margin-top: 28px; }
+  .about-section { grid-template-columns: 1fr; gap: 22px; padding: 48px 0; }
+  .about-section-label strong { margin-top: 4px; }
+  .about-panel, .about-card { padding: 22px 20px; }
 }
-@keyframes about-fade-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+@media (max-width: 520px) {
+  .about-hero h1 { font-size: clamp(39px, 13vw, 58px); }
+  .creator-grid, .contact-grid, .future-list { grid-template-columns: 1fr; }
+  .about-copy p, .about-card p { font-size: 14px; }
 }
-.about-hero h1 {
-  font-family: var(--font-display);
-  margin-bottom: 10px;
-  font-size: clamp(26px, 3.4vw, 36px);
-  letter-spacing: -0.02em;
-}
-.about-hero .eyebrow {
-  font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--text-muted); font-weight: 600; margin-bottom: 14px;
-  display: flex; align-items: center; gap: 10px;
-}
-.about-hero .eyebrow::before {
-  content: "";
-  width: 14px; height: 1px;
-  background: var(--accent);
-  display: inline-block;
-}
-.about-hero p {
-  line-height: 1.7;
-  color: var(--text-secondary);
-  max-width: 720px;
-}
-.about-card {
-  border-radius: var(--radius-lg);
-  padding: 26px 28px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-}
-.about-card h2 {
-  font-family: var(--font-display);
-  margin-bottom: 14px;
-  font-size: 1.05rem;
-  letter-spacing: -0.01em;
-}
-.about-card p {
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin-bottom: 10px;
-  font-size: 14.5px;
-}
-.creator-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 8px;
-}
-.creator-label {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  margin-bottom: 5px;
-}
-.creator-value {
-  font-weight: 600;
-  color: var(--text-primary);
-  font-size: 14.5px;
-}
-.tag-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.tag {
-  padding: 6px 13px;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-}
-.future-list {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 20px;
-}
-.future-list li {
-  padding-left: 18px;
-  position: relative;
-  color: var(--text-secondary);
-  font-size: 14px;
-}
-.future-list li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: var(--text-muted);
-}
-.github-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: var(--text-primary);
-  font-weight: 600;
-  font-size: 14px;
-  padding: 11px 18px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--surface-2);
-  transition: all 0.2s var(--ease);
-}
-.github-link:hover {
-  border-color: #cbbda9;
-  transform: translateY(-1px);
-}
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-.inline-link {
-  color: var(--accent-strong);
-  text-decoration: none;
-}
-.inline-link:hover {
-  text-decoration: underline;
-}
-@media (max-width: 640px) {
-  .creator-grid,
-  .contact-grid,
-  .future-list {
-    grid-template-columns: 1fr;
-  }
-}
+@media (prefers-reduced-motion: reduce) { .about-reveal { opacity: 1; transform: none; } }
 </style>
 </head>
 <body>
@@ -309,138 +233,85 @@
 
   <!-- ============ ABOUT PAGE ============ -->
   <section id="page-about" class="page about-page">
-
     <div class="utility-row">
       <button class="btn btn-ghost btn-sm" id="about-back-home">← Back to categories</button>
     </div>
 
-    <div class="about-hero">
-      <div class="eyebrow">About</div>
-      <h1>About the Project</h1>
-      <p><strong>Magniloq</strong> is a premium web application designed to help users improve their spoken English through structured, topic-driven speaking practice.</p>
-      <p>Instead of asking users to speak on broad or generic topics, the platform generates carefully curated niche concepts from selected categories such as Artificial Intelligence, Mathematics, Finance, Philosophy, Science, Technology, Leadership, Economics, and many more.</p>
-      <p>Each speaking session is designed to encourage critical thinking, improve vocabulary, strengthen structured communication, and build confidence while speaking under time constraints.</p>
-      <p>The application focuses on helping learners become better communicators rather than simply improving grammar. It aims to make daily English speaking practice engaging, intellectually stimulating, and highly customizable.</p>
-    </div>
+    <header class="about-hero">
+      <div class="eyebrow">About the Project · The person behind Magniloq</div>
+      <h1>Where ideas become <em>something useful.</em></h1>
+      <p class="hero-deck"><strong>Magniloq</strong> is a premium web application designed to help users improve their spoken English through structured, topic-driven speaking practice.</p>
+      <p class="hero-note">A project about language, learning, and making complex ideas speakable.</p>
+      <span class="about-scroll-cue">Read the story</span>
+    </header>
 
-    <div class="about-card">
-      <h2>Why This Project?</h2>
-      <p>Many English speaking platforms repeatedly use generic discussion prompts that become predictable and boring.</p>
-      <p>This project was created to solve that problem by introducing specialized, knowledge-based speaking prompts that encourage users to learn, think, and explain complex ideas in simple language.</p>
-      <p>The goal is to develop fluency, confidence, logical thinking, and the ability to communicate technical as well as non-technical concepts effectively.</p>
-    </div>
+    <section class="about-section about-reveal">
+      <div class="about-section-label">01 / Introduction<strong>Why it exists</strong></div>
+      <div class="about-copy">
+        <h2>A speaking practice space for <span>curious minds.</span></h2>
+        <p>Instead of asking users to speak on broad or generic topics, the platform generates carefully curated niche concepts from selected categories such as Artificial Intelligence, Mathematics, Finance, Philosophy, Science, Technology, Leadership, Economics, and many more.</p>
+        <p>Each speaking session is designed to encourage critical thinking, improve vocabulary, strengthen structured communication, and build confidence while speaking under time constraints.</p>
+        <p>The application focuses on helping learners become better communicators rather than simply improving grammar. It aims to make daily English speaking practice engaging, intellectually stimulating, and highly customizable.</p>
+      </div>
+    </section>
 
-    <div class="about-card about-creator">
-      <h2>About the Creator</h2>
-      <div class="creator-grid">
-        <div>
-          <div class="creator-label">Name</div>
-          <div class="creator-value">Harsh Sharma</div>
+    <section class="about-section about-reveal">
+      <div class="about-section-label">02 / The story<strong>The why</strong></div>
+      <div class="about-copy about-panel">
+        <h2>Why This Project? <span>From predictable prompts to better questions.</span></h2>
+        <p>Many English speaking platforms repeatedly use generic discussion prompts that become predictable and boring.</p>
+        <p>This project was created to solve that problem by introducing specialized, knowledge-based speaking prompts that encourage users to learn, think, and explain complex ideas in simple language.</p>
+        <p>The goal is to develop fluency, confidence, logical thinking, and the ability to communicate technical as well as non-technical concepts effectively.</p>
+      </div>
+    </section>
+
+    <section class="about-section about-reveal">
+      <div class="about-section-label">03 / The maker<strong>Harsh Sharma</strong></div>
+      <div class="about-copy about-stack">
+        <div class="about-card about-creator">
+          <h2>About the creator</h2>
+          <div class="creator-grid">
+            <div><span class="creator-label">Name</span><span class="creator-value">Harsh Sharma</span></div>
+            <div><span class="creator-label">Current Status</span><span class="creator-value">Learning till my brain burst</span></div>
+          </div>
+          <span class="creator-label">Interests</span>
+          <div class="tag-row">
+            <span class="tag">Artificial Intelligence</span><span class="tag">Machine Learning</span><span class="tag">Deep Learning</span><span class="tag">Generative AI</span><span class="tag">Agentic AI</span><span class="tag">Large Language Models</span><span class="tag">LangGraph</span><span class="tag">AI System Design</span><span class="tag">Python</span><span class="tag">Competitive Programming</span><span class="tag">Quantitative Finance</span><span class="tag">Algorithmic Trading</span><span class="tag">Building practical AI products</span>
+          </div>
+          <span class="creator-label" style="margin-top:18px">About the Creator</span>
+          <p>Harsh Sharma is a final-year Artificial Intelligence & Machine Learning undergraduate passionate about building intelligent software systems that solve meaningful real-world problems. His work spans Generative AI, Agentic AI, Large Language Models (LLMs), and full-stack AI applications, with a strong emphasis on creating scalable, practical, and impactful solutions.</p>
+          <p>Alongside AI development, he actively strengthens his foundation in Data Structures & Algorithms, Competitive Programming, and Software Engineering to build robust, high-performance systems. He enjoys transforming innovative ideas into polished products that combine modern engineering practices with cutting-edge artificial intelligence.</p>
+          <p>Beyond software development, Harsh has a deep interest in quantitative finance, algorithmic trading, and financial technology. His long-term vision is to leverage AI, mathematics, and data-driven decision-making to build technology that bridges the worlds of finance and intelligent automation.</p>
         </div>
-        <div>
-          <div class="creator-label">Current Status</div>
-          <div class="creator-value">Learning till my brain burst</div>
-        </div>
       </div>
+    </section>
 
-      <div class="creator-label" style="margin-top:18px">Interests</div>
-      <div class="tag-row">
-        <span class="tag">Artificial Intelligence</span>
-        <span class="tag">Machine Learning</span>
-        <span class="tag">Deep Learning</span>
-        <span class="tag">Generative AI</span>
-        <span class="tag">Agentic AI</span>
-        <span class="tag">Large Language Models</span>
-        <span class="tag">LangGraph</span>
-        <span class="tag">AI System Design</span>
-        <span class="tag">Python</span>
-        <span class="tag">Competitive Programming</span>
-        <span class="tag">Quantitative Finance</span>
-        <span class="tag">Algorithmic Trading</span>
-        <span class="tag">Building practical AI products</span>
+    <section class="about-section about-reveal">
+      <div class="about-section-label">04 / The connection<strong>Why Magniloq</strong></div>
+      <div class="about-copy about-panel">
+        <h2>Communication is a form of <span>craft.</span></h2>
+        <p>Magniloq was created with the belief that effective communication is one of the most valuable skills anyone can develop. By combining AI-powered feedback, structured practice, curated discussion topics, and continuous performance analysis, the platform aims to help learners become more confident, articulate, and impactful speakers.</p>
+        <p>As a lifelong learner, Harsh is committed to continuously exploring emerging technologies, solving challenging engineering problems, and building products that empower people through innovation, knowledge, and intelligent software.</p>
       </div>
+    </section>
 
-      <div class="creator-label" style="margin-top:18px">About the Creator</div>
-
-      <p>
-      Harsh Sharma is a final-year Artificial Intelligence & Machine Learning undergraduate passionate about building intelligent software systems that solve meaningful real-world problems. His work spans Generative AI, Agentic AI, Large Language Models (LLMs), and full-stack AI applications, with a strong emphasis on creating scalable, practical, and impactful solutions.
-      </p>
-
-      <p>
-      Alongside AI development, he actively strengthens his foundation in Data Structures & Algorithms, Competitive Programming, and Software Engineering to build robust, high-performance systems. He enjoys transforming innovative ideas into polished products that combine modern engineering practices with cutting-edge artificial intelligence.
-      </p>
-
-      <p>
-      Beyond software development, Harsh has a deep interest in quantitative finance, algorithmic trading, and financial technology. His long-term vision is to leverage AI, mathematics, and data-driven decision-making to build technology that bridges the worlds of finance and intelligent automation.
-      </p>
-
-      <p>
-      Magniloq was created with the belief that effective communication is one of the most valuable skills anyone can develop. By combining AI-powered feedback, structured practice, curated discussion topics, and continuous performance analysis, the platform aims to help learners become more confident, articulate, and impactful speakers.
-      </p>
-
-      <p>
-      As a lifelong learner, Harsh is committed to continuously exploring emerging technologies, solving challenging engineering problems, and building products that empower people through innovation, knowledge, and intelligent software.
-      </p>
-
-    <div class="about-card">
-      <h2>Technology Stack</h2>
-      <div class="tag-row">
-        <span class="tag">Python</span>
-        <span class="tag">Streamlit</span>
-        <span class="tag">Modern UI Components</span>
-        <span class="tag">JSON-based Topic Database</span>
-        <span class="tag">Custom Timer System</span>
-        <span class="tag">Responsive Design</span>
-        <span class="tag">Modular Architecture</span>
+    <section class="about-section about-reveal">
+      <div class="about-section-label">05 / The toolkit<strong>Built in layers</strong></div>
+      <div class="about-copy about-stack">
+        <div class="about-card"><h2>Technology Stack</h2><div class="tag-row"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Modern UI Components</span><span class="tag">JSON-based Topic Database</span><span class="tag">Custom Timer System</span><span class="tag">Responsive Design</span><span class="tag">Modular Architecture</span></div></div>
+        <div class="about-card"><h2>Future Vision</h2><p class="hint">Planned features — not yet implemented</p><ul class="future-list"><li>AI-powered speaking feedback</li><li>Pronunciation analysis</li><li>Vocabulary tracking</li><li>Personalized topic recommendations</li><li>Daily streaks</li><li>Performance analytics</li><li>Speech recordings</li><li>AI-generated follow-up questions</li><li>Interview practice mode</li><li>IELTS and TOEFL speaking preparation</li></ul></div>
       </div>
-    </div>
+    </section>
 
-    <div class="about-card">
-      <h2>Future Vision</h2>
-      <p class="hint">Planned features — not yet implemented</p>
-      <ul class="future-list">
-        <li>AI-powered speaking feedback</li>
-        <li>Pronunciation analysis</li>
-        <li>Vocabulary tracking</li>
-        <li>Personalized topic recommendations</li>
-        <li>Daily streaks</li>
-        <li>Performance analytics</li>
-        <li>Speech recordings</li>
-        <li>AI-generated follow-up questions</li>
-        <li>Interview practice mode</li>
-        <li>IELTS and TOEFL speaking preparation</li>
-      </ul>
-    </div>
-
-    <div class="about-card">
-      <h2>GitHub</h2>
-      <a class="github-link" href="https://github.com/harsh31415926" target="_blank" rel="noopener">
-        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-          0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
-          -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
-          .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
-          -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0
-          1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
-          1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
-          0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8
-          c0-4.42-3.58-8-8-8Z"/>
-        </svg>
-        GitHub Profile
-      </a>
-    </div>
-
-    <div class="about-card">
-      <h2>Contact</h2>
-      <div class="contact-grid">
-        <div><span class="creator-label">Email</span><div class="creator-value">harsh3h3@gmail.com</div></div>
-        <div><span class="creator-label">LinkedIn</span><div class="creator-value"><a href="#" class="inline-link">https://www.linkedin.com/in/harshsharma-engineer/</a></div></div>
-        <div><span class="creator-label">Portfolio</span><div class="creator-value"><a href="#" class="inline-link">https://harsh31415926-github-io.vercel.app/
-PORTFOLIO</a></div></div>
-        <div><span class="creator-label">GitHub</span><div class="creator-value"><a href="https://github.com/harsh31415926" class="inline-link">github.com/harsh31415926</a></div></div>
+    <section class="about-section about-reveal">
+      <div class="about-section-label">06 / Open doors<strong>Find Harsh</strong></div>
+      <div class="about-copy about-stack">
+        <div class="about-card"><h2>GitHub</h2><a class="github-link" href="https://github.com/harsh31415926" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38-.0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>GitHub Profile</a></div>
+        <div class="about-card"><h2>Contact</h2><div class="contact-grid"><div><span class="creator-label">Email</span><div class="creator-value">harsh3h3@gmail.com</div></div><div><span class="creator-label">LinkedIn</span><div class="creator-value"><a href="https://www.linkedin.com/in/harshsharma-engineer/" target="_blank" rel="noopener" class="inline-link">https://www.linkedin.com/in/harshsharma-engineer/</a></div></div><div><span class="creator-label">Portfolio</span><div class="creator-value"><a href="https://harsh31415926-github-io.vercel.app/" target="_blank" rel="noopener" class="inline-link">https://harsh31415926-github-io.vercel.app/ PORTFOLIO</a></div></div><div><span class="creator-label">GitHub</span><div class="creator-value"><a href="https://github.com/harsh31415926" target="_blank" rel="noopener" class="inline-link">github.com/harsh31415926</a></div></div></div></div>
       </div>
-    </div>
+    </section>
 
+    <footer class="about-signature about-reveal"><div class="signature-mark">M / ∞</div><p>Magniloq — practice, not perfection.</p></footer>
   </section>
 
   <div class="footer-note">
@@ -598,6 +469,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (aboutBackBtn) {
     aboutBackBtn.addEventListener('click', () => showPage('page-home'));
+  }
+
+  const revealItems = document.querySelectorAll('.about-reveal');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach(item => revealObserver.observe(item));
+  } else {
+    revealItems.forEach(item => item.classList.add('is-visible'));
   }
 });
 </script>
